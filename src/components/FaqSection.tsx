@@ -7,17 +7,20 @@ export const FaqSection: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(FAQ_LIST[0].id);
 
   return (
-    <section id="faq" className="relative z-20 py-32 px-6 md:px-12 bg-[#0B0B0B] border-t border-white/5 max-w-5xl mx-auto">
+    <section id="faq" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] border-t border-white/5 max-w-5xl mx-auto">
       <div className="text-center mb-20">
         <div className="flex items-center justify-center gap-2 mb-4">
           <HelpCircle className="w-4 h-4 text-[#DD183B]" />
           <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#DD183B]">
-            Clarity & Transparency
+            FREQUENTLY ASKED QUESTIONS
           </span>
         </div>
-        <h2 className="text-5xl sm:text-7xl font-black tracking-tighter uppercase font-display text-white">
-          Frequently Answered <span className="text-transparent text-stroke-white">Inquiries</span>
+        <h2 className="text-5xl sm:text-7xl font-black tracking-tighter uppercase font-display text-white mb-6">
+          Answers to <span className="text-[#DD183B]">Questions</span> That Matter.
         </h2>
+        <p className="text-[#8E8E8E] text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          Have questions about working with VClick Digitally? Here are answers to some of the most common questions businesses ask before starting a project.
+        </p>
       </div>
 
       {/* Accordion */}

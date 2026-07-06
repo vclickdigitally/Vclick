@@ -4,7 +4,7 @@ import { CASE_STUDY_STATS } from '../data/mockData';
 
 export const CaseStudyNumbersSection: React.FC = () => {
   return (
-    <section id="case-studies" className="relative z-20 py-28 px-6 md:px-12 bg-[#111111] border-t border-b border-white/10 overflow-hidden">
+    <section id="case-studies" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#111111] border-t border-b border-white/10 overflow-hidden">
       {/* Background Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02]">
         <span className="font-display font-black text-[280px] uppercase tracking-widest text-white whitespace-nowrap">

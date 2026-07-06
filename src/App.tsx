@@ -1,18 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CustomCursor } from './components/CustomCursor';
 import { BackgroundDecoration } from './components/BackgroundDecoration';
 import { Navbar } from './components/Navbar';
+import { ServiceDetailPage } from './components/ServiceDetailPage';
 import { HeroSection } from './components/HeroSection';
+import { AboutSection } from './components/AboutSection';
 import { TrustedBySection } from './components/TrustedBySection';
+import { ClientStatsSection } from './components/ClientStatsSection';
+import { GoogleReviewsSection } from './components/GoogleReviewsSection';
 import { ServicesSection } from './components/ServicesSection';
-import { FeaturedProjectsSection } from './components/FeaturedProjectsSection';
+import { WhyChooseVClick } from './components/WhyChooseVClick';
+import { InteractivePortfolio } from './components/InteractivePortfolio';
 import { ProcessSection } from './components/ProcessSection';
-import { CaseStudyNumbersSection } from './components/CaseStudyNumbersSection';
-import { WhyChooseUsSection } from './components/WhyChooseUsSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import { IndustriesSection } from './components/IndustriesSection';
-import { InteractiveEstimatorSection } from './components/InteractiveEstimatorSection';
 import { FaqSection } from './components/FaqSection';
+import { BlogSection } from './components/BlogSection';
 import { CtaSection } from './components/CtaSection';
 import { Footer } from './components/Footer';
 
@@ -28,6 +29,43 @@ export default function App() {
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
   const [isShowreelOpen, setIsShowreelOpen] = useState(false);
   const [selectedProjectCase, setSelectedProjectCase] = useState<ProjectCase | null>(null);
+
+  // Path-based routing state
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  // Handle popstate (browser back/forward buttons)
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Intercept anchor clicks starting with '/services/' for SPA behavior
+  useEffect(() => {
+    const handleGlobalClicks = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+      if (anchor) {
+        const href = anchor.getAttribute('href');
+        if (href && href.startsWith('/services/')) {
+          e.preventDefault();
+          window.history.pushState({}, '', href);
+          setCurrentPath(href);
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+      }
+    };
+    document.addEventListener('click', handleGlobalClicks);
+    return () => document.removeEventListener('click', handleGlobalClicks);
+  }, []);
+
+  const navigateToHome = () => {
+    window.history.pushState({}, '', '/');
+    setCurrentPath('/');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
 
   // Preset parameters for ProjectModal
   const [initialModalBudget, setInitialModalBudget] = useState<number>(15000);
@@ -91,44 +129,54 @@ export default function App() {
 
       {/* Main Content Assembly */}
       <main className="flex-1 flex flex-col relative z-10 overflow-hidden">
-        {/* 1. Hero Section */}
-        <HeroSection
-          onLaunchExperience={handleLaunchExperience}
-          onOpenShowreel={handleOpenShowreel}
-        />
+        {currentPath.startsWith('/services/') ? (
+          <ServiceDetailPage
+            path={currentPath}
+            onNavigateHome={navigateToHome}
+            onStartProject={handleStartProject}
+          />
+        ) : (
+          <>
+            {/* 1. Hero Section */}
+            <HeroSection
+              onLaunchExperience={handleLaunchExperience}
+              onOpenShowreel={handleOpenShowreel}
+            />
 
-        {/* 2. Trusted By Global Brands Marquee */}
-        <TrustedBySection />
+            {/* About Us Section */}
+            <AboutSection />
 
-        {/* 3. Our Services / Core Capabilities (Bento Deep Dive) */}
-        <ServicesSection onSelectService={handleSelectService} />
+            {/* 2. Our Services / Core Capabilities (Bento Deep Dive) */}
+            <ServicesSection onSelectService={handleSelectService} />
 
-        {/* 4. Featured Case Studies Showcases */}
-        <FeaturedProjectsSection onExploreCase={handleExploreCase} />
+            {/* 3. Why Choose VClick Digitally */}
+            <WhyChooseVClick />
 
-        {/* 5. Our Surgical Process */}
-        <ProcessSection />
+            {/* 4. Selected Work Interactive Portfolio */}
+            <InteractivePortfolio />
 
-        {/* 6. Case Study Numbers Banner */}
-        <CaseStudyNumbersSection />
+            {/* 5. Our Surgical Process */}
+            <ProcessSection />
 
-        {/* 7. Why Choose Us Comparison Matrix */}
-        <WhyChooseUsSection />
+            {/* 11. Trusted By Industry Leaders (Dual Infinite Marquee) */}
+            <TrustedBySection />
 
-        {/* 8. Verified Executive Testimonials */}
-        <TestimonialsSection />
+            {/* Client Stats Section */}
+            <ClientStatsSection />
 
-        {/* 9. Vertical Dominance (Industries) */}
-        <IndustriesSection onSelectIndustry={handleSelectIndustry} />
+            {/* Google Reviews Section */}
+            <GoogleReviewsSection />
 
-        {/* 10. Interactive Growth Simulator (Estimator) */}
-        <InteractiveEstimatorSection onStartWithEstimate={handleStartWithEstimate} />
+            {/* Dynamic WordPress Blog Section */}
+            <BlogSection />
 
-        {/* 11. Frequently Answered Inquiries (FAQ) */}
-        <FaqSection />
+            {/* 12. Frequently Answered Inquiries (FAQ) */}
+            <FaqSection />
 
-        {/* 12. Monumental Turning Point CTA */}
-        <CtaSection onStartProject={handleStartProject} />
+            {/* 12. Monumental Turning Point CTA */}
+            <CtaSection onStartProject={handleStartProject} />
+          </>
+        )}
       </main>
 
       {/* Premium Footer */}

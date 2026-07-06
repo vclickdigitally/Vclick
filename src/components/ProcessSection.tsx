@@ -5,23 +5,29 @@ import { Check } from 'lucide-react';
 
 export const ProcessSection: React.FC = () => {
   return (
-    <section id="process" className="relative z-20 py-32 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto">
+    <section id="process" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
         <div>
           <div className="flex items-center gap-3 mb-4">
             <span className="h-[1.5px] w-10 bg-[#DD183B]" />
             <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#DD183B]">
-              Surgical Methodology
+              OUR PROCESS
             </span>
           </div>
-          <h2 className="text-5xl sm:text-7xl font-black tracking-tighter uppercase font-display max-w-2xl">
-            The 4-Step <span className="text-transparent text-stroke-white">Asymmetric</span> Protocol
+          <h2 className="text-5xl sm:text-7xl font-black tracking-tighter uppercase font-display max-w-2xl leading-none">
+            A Clear Process.<br />
+            Built Around Your <span className="text-[#DD183B]">Success.</span>
           </h2>
         </div>
-        <p className="text-[#8E8E8E] text-base sm:text-lg max-w-md leading-relaxed">
-          How we take brands from crowded market participants to algorithmic category monopolies in 180 days or less.
-        </p>
+        <div className="flex flex-col gap-4 text-[#8E8E8E] text-base sm:text-lg max-w-md leading-relaxed">
+          <p>
+            Every successful project begins with understanding your business and ends with measurable digital growth.
+          </p>
+          <p>
+            Our streamlined process keeps every stage transparent, collaborative, and focused on delivering long-term value.
+          </p>
+        </div>
       </div>
 
       {/* Grid of Steps */}

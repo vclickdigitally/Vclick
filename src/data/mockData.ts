@@ -10,111 +10,125 @@ import {
 } from '../types';
 
 export const TRUSTED_BRANDS = [
-  { name: 'Vercel', style: 'font-bold tracking-widest uppercase' },
-  { name: 'Linear', style: 'font-bold tracking-widest uppercase italic' },
-  { name: 'Stripe', style: 'font-bold tracking-widest uppercase' },
-  { name: 'Nike', style: 'font-bold tracking-widest uppercase font-black' },
-  { name: 'Balenciaga', style: 'font-bold tracking-[0.25em] uppercase text-xs' },
-  { name: 'Bang & Olufsen', style: 'font-medium tracking-wider uppercase text-sm' },
-  { name: 'Revolut', style: 'font-extrabold tracking-tight uppercase' },
-  { name: 'Klarna', style: 'font-black tracking-normal uppercase' },
+  { name: 'DK Safety Nets', category: 'Safety Solutions', style: 'font-bold tracking-wider uppercase font-display text-base sm:text-lg' },
+  { name: 'Girly Colours', category: 'Fashion & Lifestyle', style: 'font-bold tracking-wide uppercase font-sans text-xs sm:text-sm' },
+  { name: 'Reverse Axis', category: 'Technology Solutions', style: 'font-bold tracking-widest uppercase italic font-display text-base sm:text-lg' },
+  { name: 'Hitech Graphite', category: 'Industrial Manufacturing', style: 'font-black tracking-wider uppercase font-display text-base sm:text-lg' },
+  { name: 'Halo Quant', category: 'FinTech & Trading', style: 'font-black tracking-normal uppercase font-display text-base sm:text-lg' },
+  { name: 'Murali Academy', category: 'Education & Training', style: 'font-medium tracking-wider uppercase text-xs sm:text-sm font-sans' },
+  { name: 'Sky Digitally', category: 'Digital Marketing Agency', style: 'font-black tracking-widest uppercase font-display text-base sm:text-lg' },
+  { name: 'JH Rehabilitation Hospital', category: 'Healthcare', style: 'font-semibold tracking-normal uppercase text-xs sm:text-sm font-sans' },
+  { name: 'The Apt Consultancy', category: 'Business Consultancy', style: 'font-medium tracking-[0.2em] uppercase text-xs sm:text-sm font-sans' },
+  { name: 'Zungle Zest', category: 'Safari & Travel', style: 'font-black tracking-wide uppercase font-display text-base sm:text-lg' },
+  { name: 'JS Auto Reviews', category: 'Automotive Media', style: 'font-bold tracking-wider uppercase font-sans text-xs sm:text-sm' },
+  { name: 'Vikaza Property Management', category: 'Property Management', style: 'font-bold tracking-normal uppercase font-display text-base sm:text-lg' },
+  { name: 'Yalumai Stitching Studio', category: 'Fashion & Tailoring', style: 'font-medium tracking-wide uppercase text-xs sm:text-sm font-sans' },
+  { name: 'CRTTrendz', category: 'Fashion E-commerce', style: 'font-black tracking-tight uppercase font-display text-lg sm:text-xl' },
+  { name: 'Magic Minds Education', category: 'Education', style: 'font-bold tracking-widest uppercase font-display text-base sm:text-lg' },
+  { name: 'Dodecan', category: 'Technology Solutions', style: 'font-extrabold tracking-tight uppercase font-display text-base sm:text-lg' },
+  { name: 'Gulfsig', category: 'Industrial Services', style: 'font-black tracking-widest uppercase font-display text-lg sm:text-xl' },
 ];
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
-    id: 'seo-dominance',
-    title: 'Aggressive SEO Dominance',
-    tagline: 'Algorithmic Monopoly & High-Intent Search Capture',
-    category: 'SEO',
+    id: 'web-development',
+    title: 'Web Development',
+    tagline: 'WordPress, Shopify, Wix & Custom Web Flagships',
+    category: 'WEB DEV',
     description:
-      'We do not chase vanity keywords. We reverse-engineer search intent to dominate high-ticket transactional SERPs across global markets. Engineered for compound organic growth.',
+      'Business websites to full e-commerce stores — built on WordPress, Shopify, Wix and Squarespace. Fast, clean, conversion-focused and built to rank on Google from day one.',
     keyDeliverables: [
-      'Semantic Topical Authority Clusters',
-      'High-Velocity Technical Core Web Vitals Optimization',
-      'High-DR Editorial Digital PR & Backlink Acquisition',
-      'AI Grounding & Generative Engine Optimization (GEO)',
+      'WordPress',
+      'Shopify',
+      'Wix',
+      'Squarespace',
+      'E-commerce',
+      'Business Sites',
     ],
     metrics: [
-      { label: 'Avg. Organic ROI', value: '410%', change: '+185% vs industry' },
-      { label: 'Index Indexation Velocity', value: '< 24h', change: 'Tier 1 Priority' },
-      { label: 'Top 3 Keywords Captured', value: '1,420+', change: 'Per client avg' },
-    ],
-    simulationData: {
-      chartPoints: [12, 28, 45, 82, 140, 210, 340, 580],
-      labels: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M9', 'M12'],
-      highlightText: '+840% Organic Pipeline Growth',
-    },
-  },
-  {
-    id: 'google-ads-ppc',
-    title: 'Precision Google Ads (PPC)',
-    tagline: 'Algorithmic Bidding & Asymmetric Conversion Capture',
-    category: 'PPC',
-    description:
-      'Turn ad spend into predictable revenue architecture. We deploy predictive machine learning scripts and sniper customer segmentation to slash CPA while multiplying customer lifetime value.',
-    keyDeliverables: [
-      'Sniper High-Ticket Search & Performance Max Campaigns',
-      'Custom Conversion Value Rules & Offline Tracking API',
-      'Algorithmic Negative Keyword Shields',
-      'Dynamic Hyper-Relevant Landing Page Variations',
-    ],
-    metrics: [
-      { label: 'Average ROAS', value: '5.8x', change: 'Verified enterprise' },
-      { label: 'CPA Reduction', value: '-42%', change: 'First 60 days' },
-      { label: 'Ad Waste Eliminated', value: '99.4%', change: 'AI Audit score' },
-    ],
-    simulationData: {
-      chartPoints: [80, 65, 52, 44, 38, 31, 28, 24],
-      labels: ['W1', 'W2', 'W3', 'W4', 'W6', 'W8', 'W10', 'W12'],
-      highlightText: 'CPA Dropped from $142 to $24',
-    },
-  },
-  {
-    id: 'web-design-dev',
-    title: 'Award-Winning Web Engineering',
-    tagline: 'Sub-Second Speeds & Unforgettable Interactive UX',
-    category: 'DEV',
-    description:
-      'We build high-converting digital flagships. Combining GSAP motion choreography, Next.js/Vite edge rendering, and bespoke glassmorphic UI that positions your company on another level.',
-    keyDeliverables: [
-      'Bespoke Interactive GSAP & WebGL Animation Architecture',
-      'Headless CMS & Edge-Accelerated E-Commerce Engines',
-      'Conversion Rate Optimization (CRO) UX Sprints',
-      '99+ Google PageSpeed Performance GUARANTEE',
-    ],
-    metrics: [
-      { label: 'PageSpeed Score', value: '99.8', change: 'Lightning Fast' },
-      { label: 'Conversion Lift', value: '+145%', change: 'Post-launch' },
-      { label: 'Bounce Rate', value: '18.2%', change: 'Top 1% web UX' },
+      { label: 'PageSpeed Guarantee', value: '99+', change: 'Sub-second TTFB' },
+      { label: 'Conversion Rate', value: '+140%', change: 'Post-launch avg' },
+      { label: 'Google Rank Ready', value: 'Day 1', change: 'Clean code SEO' },
     ],
     simulationData: {
       chartPoints: [45, 99, 99, 100, 99, 100],
       labels: ['TTFB', 'FCP', 'LCP', 'CLS', 'FID', 'INP'],
-      highlightText: 'Instantaneous Edge Rendering',
+      highlightText: 'Fast, Clean & Conversion-Focused',
     },
   },
   {
-    id: 'branding-social',
-    title: 'Iconic Branding & Social',
-    tagline: 'Unignorable Brand Equity & Viral Authority Sprints',
-    category: 'BRANDING',
+    id: 'organic-growth',
+    title: 'Organic Growth',
+    tagline: 'Compounding Search Dominance Without Shortcuts',
+    category: 'SEO',
     description:
-      'We craft luxury brand identities that command premium pricing. From cinematic social showreels to category-defining visual design, we turn businesses into cult-like global authorities.',
+      'SEO for every industry — local, national, international. We build search visibility that compounds over time. No shortcuts, no black-hat tricks — just strategy that holds.',
     keyDeliverables: [
-      'Cinematic 4K Brand Film Production & Showreels',
-      'Category-King Positioning & Luxury Tone of Voice',
-      'Executive Thought Leadership & Founder Branding',
-      'High-Conversion UGC & Social Advertising Creative',
+      'On-Page SEO',
+      'Technical SEO',
+      'Link Building',
+      'Content Strategy',
+      'Local SEO',
     ],
     metrics: [
-      { label: 'Brand Recall Lift', value: '3.4x', change: 'Unaided survey' },
-      { label: 'Social CTR Lift', value: '+210%', change: 'Organic & Paid' },
-      { label: 'Valuation Multiplier', value: '2.8x', change: 'Series A/B exit lift' },
+      { label: 'Compounding Traffic', value: '4.2x', change: '12-month avg' },
+      { label: 'Keyword Rankings', value: 'Top 3', change: 'High intent SERP' },
+      { label: 'Penalty Safety', value: '100%', change: 'White-hat guarantee' },
+    ],
+    simulationData: {
+      chartPoints: [12, 28, 45, 82, 140, 210, 340, 580],
+      labels: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M9', 'M12'],
+      highlightText: 'Strategy That Holds & Compounds',
+    },
+  },
+  {
+    id: 'performance-marketing',
+    title: 'Performance Marketing',
+    tagline: 'Meta & Google Ad Campaigns Built Around Intent & Revenue',
+    category: 'PPC',
+    description:
+      'Meta Ads and Google Ads that pay back. Campaigns built around intent, audience and conversion — not impressions. Every rupee of ad spend tracked and optimised relentlessly.',
+    keyDeliverables: [
+      'Meta Ads',
+      'Google Ads',
+      'Search Campaigns',
+      'Retargeting',
+      'Shopping Ads',
+    ],
+    metrics: [
+      { label: 'Target ROAS', value: '5.4x', change: 'Verified average' },
+      { label: 'CPA Reduction', value: '-38%', change: 'First 60 days' },
+      { label: 'Spend Optimization', value: '100%', change: 'Zero ad waste' },
+    ],
+    simulationData: {
+      chartPoints: [80, 65, 52, 44, 38, 31, 28, 24],
+      labels: ['W1', 'W2', 'W3', 'W4', 'W6', 'W8', 'W10', 'W12'],
+      highlightText: 'Tracked & Optimised Relentlessly',
+    },
+  },
+  {
+    id: 'social-presence',
+    title: 'Social Presence',
+    tagline: 'End-to-End Content, Poster Design & On-Brand Management',
+    category: 'SOCIAL',
+    description:
+      'Social media end-to-end — strategy, content creation, poster design and posting. Consistent, on-brand presence across Instagram, Facebook and LinkedIn without you lifting a finger.',
+    keyDeliverables: [
+      'Content Creation',
+      'Poster Design',
+      'Instagram',
+      'Facebook',
+      'LinkedIn',
+    ],
+    metrics: [
+      { label: 'Engagement Rate', value: '4.8x', change: 'Above benchmark' },
+      { label: 'Brand Consistency', value: '100%', change: 'On-brand design' },
+      { label: 'Time Saved', value: '40h/mo', change: 'Fully hands-off' },
     ],
     simulationData: {
       chartPoints: [10, 35, 90, 240, 520, 890, 1500],
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-      highlightText: '14.2M Organic Impressions Generated',
+      highlightText: 'Consistent On-Brand Authority',
     },
   },
 ];
@@ -197,35 +211,35 @@ export const FEATURED_PROJECTS: ProjectCase[] = [
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: '01',
-    title: 'THE DIAGNOSTIC AUDIT',
-    subtitle: 'Forensic Competitor & Keyword Extraction',
+    title: 'DISCOVER',
+    subtitle: 'Understand Your Business',
     description:
-      'We dissect your industry competitors, ad accounts, and technical infrastructure. We identify hidden revenue leaks and uncaptured keyword monopolies.',
-    deliverables: ['Full TAM Search Volume Mapping', 'Competitor Ad Budget Reverse-Engineering', 'Technical Web Vitals Audit'],
+      'Every successful project starts with listening. We learn about your business, industry, competitors, target audience, and goals before recommending any solution.',
+    deliverables: ['Business Discovery', 'Competitor Research', 'Market Analysis', 'Goal Definition'],
   },
   {
     step: '02',
-    title: 'THE STRATEGIC BLUEPRINT',
-    subtitle: 'Asymmetric Growth Architecture',
+    title: 'STRATEGIZE',
+    subtitle: 'Build a Custom Roadmap',
     description:
-      'We formulate a bespoke battle plan. Selecting exact ad channels, landing page funnels, and content silos engineered for rapid payback cycles.',
-    deliverables: ['Custom CPA & LTV Financial Projections', 'GSAP UI/UX Wireframe Systems', 'PPC Bidding Algorithmic Framework'],
+      'Based on our research, we create a tailored strategy designed specifically for your business, combining the right services to achieve measurable growth.',
+    deliverables: ['Growth Strategy', 'SEO & Marketing Plan', 'Website Planning', 'Project Roadmap'],
   },
   {
     step: '03',
-    title: 'THE AGGRESSIVE DEPLOYMENT',
-    subtitle: 'Code, Creative & Algorithmic Launch',
+    title: 'BUILD',
+    subtitle: 'Bring Ideas to Life',
     description:
-      'Our senior engineers and creative directors build and launch your assets. High-impact video creative, lightning-fast edge pages, and sniper PPC bids go live.',
-    deliverables: ['Sub-Second Web Production', 'Server-Side Offline Conversion API', 'High-Velocity Editorial Backlinks'],
+      'Our team transforms strategy into execution through modern websites, SEO implementation, branding, content creation, and digital marketing campaigns.',
+    deliverables: ['Website Development', 'SEO Implementation', 'Creative Design', 'Campaign Launch'],
   },
   {
     step: '04',
-    title: 'THE COMPOUND MONOPOLY',
-    subtitle: 'Continuous Optimization & Market Dominance',
+    title: 'GROW',
+    subtitle: 'Optimize & Scale',
     description:
-      'We never stagnate. Machine learning scripts optimize ad bids 24/7, while our content team expands your organic footprint until competitors cannot catch up.',
-    deliverables: ['Bi-Weekly Executive ROI Reports', 'Continuous CRO Split Testing', 'International Market Expansion Sprints'],
+      'Growth doesn\'t stop after launch. We continuously monitor performance, refine strategies, and optimize every opportunity to help your business grow over time.',
+    deliverables: ['Performance Monitoring', 'Continuous Optimization', 'Monthly Reporting', 'Long-Term Growth'],
   },
 ];
 
@@ -376,37 +390,37 @@ export const INDUSTRIES_SECTORS: IndustrySector[] = [
 export const FAQ_LIST: FaqItem[] = [
   {
     id: 'faq-1',
-    question: 'How is VClick Digitally different from traditional marketing agencies?',
+    question: 'What digital marketing services does VClick Digitally offer?',
     answer:
-      'We operate at the intersection of elite front-end engineering, award-winning GSAP motion design, and algorithmic performance marketing. Most agencies outsource development or use bloated WordPress templates while junior staff run default Google Ad campaigns. At VClick, Senior Architects and Creative Directors personally build your digital monopoly.',
-    category: 'General',
+      'VClick Digitally provides a focused range of digital growth services, including SEO, website design and development, Meta Ads management, branding, social media management, and e-commerce website development. Every solution is tailored to your business goals rather than using one-size-fits-all templates.',
+    category: 'Services',
   },
   {
     id: 'faq-2',
-    question: 'What is your minimum engagement size or investment required?',
+    question: 'How long does it take to see results from SEO?',
     answer:
-      'Because we engineer bespoke, high-performance systems rather than cookie-cutter templates, our client engagements typically start at $7,500/month for comprehensive growth partnerships or $15,000+ for standalone award-winning web design & dev flagships. We work exclusively with brands serious about scaling.',
-    category: 'Pricing',
+      'SEO is a long-term investment that builds sustainable online visibility. While every business and industry is different, many websites begin to see measurable improvements within 3 to 6 months. Factors such as competition, website quality, content, and technical SEO all influence the timeline. Our approach focuses on building lasting organic growth rather than short-term gains.',
+    category: 'SEO',
   },
   {
     id: 'faq-3',
-    question: 'How quickly can we expect measurable revenue impact?',
+    question: 'Can you redesign my existing website without affecting my business?',
     answer:
-      'For Google Ads (PPC) and Conversion Rate Optimization sprints, performance improvements are typically tracked within the first 14 to 30 days. For international SEO and topical authority campaigns, compounding pipeline growth becomes significant between months 3 and 6.',
-    category: 'Performance',
+      'Yes. We can redesign your existing website while preserving essential content, improving user experience, enhancing performance, and implementing SEO best practices. Our goal is to create a modern, responsive website that supports your business objectives with minimal disruption.',
+    category: 'Redesign',
   },
   {
     id: 'faq-4',
-    question: 'Do you guarantee Google PageSpeed performance scores?',
+    question: 'Do you work with businesses from different industries?',
     answer:
-      'Yes. Every web flagship we build comes with a contractual guarantee of 95+ Desktop and Mobile PageSpeed scores. We write clean, modular Next.js/Vite code with optimized asset pipelines to ensure zero layout shifts and sub-second load times.',
-    category: 'Technical',
+      'Yes. We work with businesses across healthcare, education, e-commerce, real estate, professional services, manufacturing, fashion, and more. Every industry has unique audiences and challenges, so we develop strategies based on your business, market, and growth objectives rather than applying the same approach to every client.',
+    category: 'Industries',
   },
   {
     id: 'faq-5',
-    question: 'Can you work with clients outside the UK or US?',
+    question: 'How do I get started with VClick Digitally?',
     answer:
-      'Absolutely. Over 60% of our active portfolio consists of international clients across Dubai, Singapore, Germany, Switzerland, and Australia. Our team operates across London, New York, and Dubai time zones.',
-    category: 'Global',
+      'Getting started is simple. Contact us to schedule an initial consultation where we\'ll discuss your business, goals, current digital presence, and challenges. Based on that conversation, we\'ll recommend a tailored strategy and the services that best support your long-term growth.',
+    category: 'Start',
   },
 ];

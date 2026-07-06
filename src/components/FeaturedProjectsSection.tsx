@@ -12,7 +12,7 @@ export const FeaturedProjectsSection: React.FC<FeaturedProjectsSectionProps> = (
   onExploreCase,
 }) => {
   return (
-    <section id="projects" className="relative z-20 py-32 px-6 md:px-12 bg-[#0B0B0B] border-t border-white/5">
+    <section id="projects" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">

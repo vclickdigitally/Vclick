@@ -4,7 +4,7 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 
 export const WhyChooseUsSection: React.FC = () => {
   return (
-    <section className="relative z-20 py-32 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto">
+    <section className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto">
       <div className="text-center mb-20">
         <div className="flex items-center justify-center gap-3 mb-4">
           <span className="h-[1.5px] w-8 bg-[#DD183B]" />

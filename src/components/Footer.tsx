@@ -1,73 +1,151 @@
 import React from 'react';
+import { Logo } from './Navbar';
+import { Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative z-20 px-6 md:px-12 py-16 bg-[#0B0B0B] border-t border-white/5 font-sans">
-      <div className="max-w-7xl mx-auto flex flex-col gap-12">
-        {/* Top Tier */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-12 border-b border-white/5">
-          <div className="flex items-center gap-3">
-            <div className="w-3 h-8 bg-[#DD183B]" />
-            <span className="text-3xl font-black tracking-tighter uppercase font-display text-white">
-              VClick <span className="text-[#DD183B]">/</span> Digitally
-            </span>
+    <footer className="relative z-20 bg-[#0B0B0B] border-t border-white/10 pt-16 pb-8 px-6 md:px-12 font-sans text-white overflow-hidden">
+      
+      {/* ====================================================
+          TOP PORTION: 4-COLUMN RESPONSIVE GRID
+         ==================================================== */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-8 lg:gap-12 pb-12 border-b border-white/10">
+        
+        {/* COLUMN 01: LOGO & ABOUT (Span 4 cols) */}
+        <div className="col-span-1 md:col-span-1 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="mb-5">
+            <Logo />
           </div>
-
-          <div className="flex flex-wrap gap-8 text-[11px] font-bold uppercase tracking-[0.2em] text-[#8E8E8E]">
-            <a href="#services" className="hover:text-[#DD183B] transition-colors">Services</a>
-            <a href="#projects" className="hover:text-[#DD183B] transition-colors">Portfolio</a>
-            <a href="#process" className="hover:text-[#DD183B] transition-colors">Method</a>
-            <a href="#estimator" className="hover:text-[#DD183B] transition-colors">Estimator</a>
-            <a href="#faq" className="hover:text-[#DD183B] transition-colors">FAQ</a>
-          </div>
+          <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-4 max-w-sm">
+            VClick Digitally helps businesses grow through SEO, high-performance websites, branding, social media, and performance marketing.
+          </p>
+          <p className="text-white/40 text-xs leading-relaxed max-w-sm">
+            Helping businesses build stronger digital experiences with strategy, creativity, and measurable growth.
+          </p>
         </div>
 
-        {/* Bottom Tier matching Sleek Interface design exactly */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#8E8E8E] mb-1">
-              Global Headquarters
-            </p>
-            <p className="text-xs font-bold text-white tracking-wide">
-              London — New York — Dubai
-            </p>
-          </div>
+        {/* COLUMN 02: SERVICES (Span 2.5 cols) */}
+        <div className="col-span-1 md:col-span-1 lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+          <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-[#DD183B] mb-5">
+            SERVICES
+          </h4>
+          <ul className="flex flex-col gap-3.5 text-xs text-white/50 font-medium">
+            {[
+              { label: 'SEO Services', href: '/services/seo' },
+              { label: 'Website Development', href: '/services/website-development' },
+              { label: 'Meta Ads Management', href: '/services/meta-ads' },
+              { label: 'Branding & Social Media', href: '/services/branding-social-media' }
+            ].map((link) => (
+              <li key={link.label}>
+                <a 
+                  href={link.href}
+                  className="hover:text-[#DD183B] transition-colors relative py-0.5 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#DD183B] hover:after:w-full after:transition-all"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <div className="hidden sm:block h-10 w-[1px] bg-white/10" />
+        {/* COLUMN 03: QUICK LINKS (Span 2.5 cols) */}
+        <div className="col-span-1 md:col-span-1 lg:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
+          <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-[#DD183B] mb-5">
+            QUICK LINKS
+          </h4>
+          <ul className="flex flex-col gap-3.5 text-xs text-white/50 font-medium">
+            {[
+              { label: 'About', href: '#about' },
+              { label: 'Our Work', href: '#projects' },
+              { label: 'Process', href: '#process' },
+              { label: 'Blog', href: '#insights' },
+              { label: 'FAQ', href: '#faq' },
+              { label: 'Contact', href: '#faq' }
+            ].map((link) => (
+              <li key={link.label}>
+                <a 
+                  href={link.href}
+                  className="hover:text-[#DD183B] transition-colors relative py-0.5 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#DD183B] hover:after:w-full after:transition-all"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <div className="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto">
-            <p className="text-[11px] text-[#8E8E8E]">
-              © {currentYear} VClick Digitally Ltd. All rights reserved.
-            </p>
+        {/* COLUMN 04: CONTACT (Span 3 cols) */}
+        <div className="col-span-1 md:col-span-1 lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+          <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-[#DD183B] mb-5">
+            CONTACT
+          </h4>
+          <div className="flex flex-col gap-4 text-xs text-white/60 font-medium">
+            {/* Email link */}
+            <a 
+              href="mailto:hello@vclickdigitally.com" 
+              className="flex items-center justify-center md:justify-start gap-2 hover:text-[#DD183B] transition-colors group"
+            >
+              <Mail className="w-4 h-4 text-[#DD183B]" />
+              <span>hello@vclickdigitally.com</span>
+            </a>
 
-            <div className="flex gap-3">
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#DD183B] hover:border-[#DD183B] text-white text-[10px] font-bold transition-all"
+            {/* Location row */}
+            <div className="flex items-center justify-center md:justify-start gap-2">
+              <MapPin className="w-4 h-4 text-[#DD183B]" />
+              <span>Tamil Nadu, India</span>
+            </div>
+
+            {/* Active Social Media platforms */}
+            <div className="flex gap-3 mt-2 justify-center md:justify-start">
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#DD183B] hover:shadow-[0_0_15px_rgba(221,24,59,0.3)] flex items-center justify-center text-white/70 hover:text-[#DD183B] transition-all hover:scale-105"
                 aria-label="LinkedIn"
               >
-                IN
+                <Linkedin className="w-4 h-4" />
               </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#DD183B] hover:border-[#DD183B] text-white text-[10px] font-bold transition-all"
-                aria-label="Twitter / X"
-              >
-                X
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#DD183B] hover:border-[#DD183B] text-white text-[10px] font-bold transition-all"
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#DD183B] hover:shadow-[0_0_15px_rgba(221,24,59,0.3)] flex items-center justify-center text-white/70 hover:text-[#DD183B] transition-all hover:scale-105"
                 aria-label="Instagram"
               >
-                IG
+                <Instagram className="w-4 h-4" />
               </a>
             </div>
           </div>
         </div>
+
       </div>
+
+      {/* ====================================================
+          BOTTOM PORTION: COPYRIGHT & POLICIES
+         ==================================================== */}
+      <div className="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-[11px] text-[#8E8E8E] font-medium font-sans">
+        
+        {/* Copy */}
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center">
+          <span>© {currentYear} VClick Digitally. All Rights Reserved.</span>
+          <span className="hidden sm:inline text-white/10">|</span>
+          <div className="flex gap-4">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
+            <a href="#" className="hover:text-white transition-colors">Sitemap</a>
+          </div>
+        </div>
+
+        {/* Credit details */}
+        <div className="text-center sm:text-right text-white/20">
+          Designed & Developed by <span className="text-white/40 font-bold">VClick Digitally</span>
+        </div>
+
+      </div>
+
     </footer>
   );
 };

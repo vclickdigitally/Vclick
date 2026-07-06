@@ -21,7 +21,7 @@ export const InteractiveEstimatorSection: React.FC<InteractiveEstimatorSectionPr
   const annualProjectedRevenue = estimatedPipeline * 12;
 
   return (
-    <section id="estimator" className="relative z-20 py-32 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto border-t border-white/5">
+    <section id="estimator" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto border-t border-white/5">
       <div className="text-center mb-20">
         <div className="flex items-center justify-center gap-3 mb-4">
           <Calculator className="w-4 h-4 text-[#DD183B]" />
