@@ -221,7 +221,7 @@ export const InteractivePortfolio: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto w-full border-b border-white/5 overflow-hidden">
+    <section id="projects" className="relative z-20 pt-10 pb-16 md:pt-14 md:pb-24 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto w-full border-b border-white/5 overflow-hidden">
       
       {/* ====================================================
           SECTION HEADER

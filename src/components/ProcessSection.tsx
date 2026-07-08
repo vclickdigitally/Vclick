@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 
 export const ProcessSection: React.FC = () => {
   return (
-    <section id="process" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto">
+    <section id="process" className="relative z-20 pt-10 pb-16 md:pt-14 md:pb-24 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
         <div>

@@ -1,28 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { CustomCursor } from './components/CustomCursor';
 import { BackgroundDecoration } from './components/BackgroundDecoration';
 import { Navbar } from './components/Navbar';
-import { ServiceDetailPage } from './components/ServiceDetailPage';
 import { HeroSection } from './components/HeroSection';
-import { AboutSection } from './components/AboutSection';
-import { TrustedBySection } from './components/TrustedBySection';
-import { ClientStatsSection } from './components/ClientStatsSection';
-import { GoogleReviewsSection } from './components/GoogleReviewsSection';
-import { ServicesSection } from './components/ServicesSection';
-import { WhyChooseVClick } from './components/WhyChooseVClick';
-import { InteractivePortfolio } from './components/InteractivePortfolio';
-import { ProcessSection } from './components/ProcessSection';
-import { FaqSection } from './components/FaqSection';
-import { BlogSection } from './components/BlogSection';
-import { CtaSection } from './components/CtaSection';
-import { Footer } from './components/Footer';
 
-// Modals
-import { ProjectModal } from './components/ProjectModal';
-import { ShowreelModal } from './components/ShowreelModal';
-import { CaseStudyModal } from './components/CaseStudyModal';
+// Lazy loaded subcomponents below the fold
+const AboutSection = lazy(() => import('./components/AboutSection').then(m => ({ default: m.AboutSection })));
+const ServicesSection = lazy(() => import('./components/ServicesSection').then(m => ({ default: m.ServicesSection })));
+const WhyChooseVClick = lazy(() => import('./components/WhyChooseVClick').then(m => ({ default: m.WhyChooseVClick })));
+const InteractivePortfolio = lazy(() => import('./components/InteractivePortfolio').then(m => ({ default: m.InteractivePortfolio })));
+const ProcessSection = lazy(() => import('./components/ProcessSection').then(m => ({ default: m.ProcessSection })));
+const TrustedBySection = lazy(() => import('./components/TrustedBySection').then(m => ({ default: m.TrustedBySection })));
+const ClientStatsSection = lazy(() => import('./components/ClientStatsSection').then(m => ({ default: m.ClientStatsSection })));
+const GoogleReviewsSection = lazy(() => import('./components/GoogleReviewsSection').then(m => ({ default: m.GoogleReviewsSection })));
+const BlogSection = lazy(() => import('./components/BlogSection').then(m => ({ default: m.BlogSection })));
+const FaqSection = lazy(() => import('./components/FaqSection').then(m => ({ default: m.FaqSection })));
+const CtaSection = lazy(() => import('./components/CtaSection').then(m => ({ default: m.CtaSection })));
+const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
+const ServiceDetailPage = lazy(() => import('./components/ServiceDetailPage').then(m => ({ default: m.ServiceDetailPage })));
+const SeoServicesPage = lazy(() => import('./components/SeoServicesPage').then(m => ({ default: m.SeoServicesPage })));
 
-import { ProjectCase, ServiceItem, IndustrySector } from './types';
+// Modals lazy loaded
+const ProjectModal = lazy(() => import('./components/ProjectModal').then(m => ({ default: m.ProjectModal })));
+const ShowreelModal = lazy(() => import('./components/ShowreelModal').then(m => ({ default: m.ShowreelModal })));
+const CaseStudyModal = lazy(() => import('./components/CaseStudyModal').then(m => ({ default: m.CaseStudyModal })));
+
+import { ProjectCase } from './types';
 
 export default function App() {
   // Modal states
@@ -129,80 +132,94 @@ export default function App() {
 
       {/* Main Content Assembly */}
       <main className="flex-1 flex flex-col relative z-10 overflow-hidden">
-        {currentPath.startsWith('/services/') ? (
-          <ServiceDetailPage
-            path={currentPath}
-            onNavigateHome={navigateToHome}
-            onStartProject={handleStartProject}
-          />
+        {currentPath === '/services/seo' || currentPath === '/services/seo/' ? (
+          <Suspense fallback={<div className="min-h-[80px]" />}>
+            <SeoServicesPage
+              onNavigateHome={navigateToHome}
+              onStartProject={handleStartProject}
+            />
+          </Suspense>
+        ) : currentPath.startsWith('/services/') ? (
+          <Suspense fallback={<div className="min-h-[80px]" />}>
+            <ServiceDetailPage
+              path={currentPath}
+              onNavigateHome={navigateToHome}
+              onStartProject={handleStartProject}
+            />
+          </Suspense>
         ) : (
           <>
-            {/* 1. Hero Section */}
+            {/* 1. Hero Section - Renders instantly */}
             <HeroSection
               onLaunchExperience={handleLaunchExperience}
               onOpenShowreel={handleOpenShowreel}
             />
 
-            {/* About Us Section */}
-            <AboutSection />
+            {/* Below-the-fold content - Lazy loaded in Suspense */}
+            <Suspense fallback={<div className="min-h-[200px]" />}>
+              {/* About Us Section */}
+              <AboutSection />
 
-            {/* 2. Our Services / Core Capabilities (Bento Deep Dive) */}
-            <ServicesSection onSelectService={handleSelectService} />
+              {/* 2. Our Services / Core Capabilities (Bento Deep Dive) */}
+              <ServicesSection onSelectService={handleSelectService} />
 
-            {/* 3. Why Choose VClick Digitally */}
-            <WhyChooseVClick />
+              {/* 3. Why Choose VClick Digitally */}
+              <WhyChooseVClick />
 
-            {/* 4. Selected Work Interactive Portfolio */}
-            <InteractivePortfolio />
+              {/* 4. Selected Work Interactive Portfolio */}
+              <InteractivePortfolio />
 
-            {/* 5. Our Surgical Process */}
-            <ProcessSection />
+              {/* 5. Our Surgical Process */}
+              <ProcessSection />
 
-            {/* 11. Trusted By Industry Leaders (Dual Infinite Marquee) */}
-            <TrustedBySection />
+              {/* 11. Trusted By Industry Leaders (Dual Infinite Marquee) */}
+              <TrustedBySection />
 
-            {/* Client Stats Section */}
-            <ClientStatsSection />
+              {/* Client Stats Section */}
+              <ClientStatsSection />
 
-            {/* Google Reviews Section */}
-            <GoogleReviewsSection />
+              {/* Google Reviews Section */}
+              <GoogleReviewsSection />
 
-            {/* Dynamic WordPress Blog Section */}
-            <BlogSection />
+              {/* Dynamic WordPress Blog Section */}
+              <BlogSection />
 
-            {/* 12. Frequently Answered Inquiries (FAQ) */}
-            <FaqSection />
+              {/* 12. Frequently Answered Inquiries (FAQ) */}
+              <FaqSection />
 
-            {/* 12. Monumental Turning Point CTA */}
-            <CtaSection onStartProject={handleStartProject} />
+              {/* 12. Monumental Turning Point CTA */}
+              <CtaSection onStartProject={handleStartProject} />
+            </Suspense>
           </>
         )}
       </main>
 
       {/* Premium Footer */}
-      <Footer />
+      <Suspense fallback={<div className="min-h-[100px]" />}>
+        <Footer />
+      </Suspense>
 
-      {/* Confidential Onboarding / Project Modal */}
-      <ProjectModal
-        isOpen={isProjectModalOpen}
-        onClose={() => setIsProjectModalOpen(false)}
-        initialBudget={initialModalBudget}
-        initialService={initialModalService}
-      />
+      {/* Modals lazy loaded with Suspense wrapper */}
+      <Suspense fallback={null}>
+        <ProjectModal
+          isOpen={isProjectModalOpen}
+          onClose={() => setIsProjectModalOpen(false)}
+          initialBudget={initialModalBudget}
+          initialService={initialModalService}
+        />
 
-      {/* 4K Global Showreel Video Modal */}
-      <ShowreelModal
-        isOpen={isShowreelOpen}
-        onClose={() => setIsShowreelOpen(false)}
-      />
+        <ShowreelModal
+          isOpen={isShowreelOpen}
+          onClose={() => setIsShowreelOpen(false)}
+        />
 
-      {/* Detailed Audited Case Study Modal */}
-      <CaseStudyModal
-        isOpen={selectedProjectCase !== null}
-        onClose={() => setSelectedProjectCase(null)}
-        project={selectedProjectCase}
-        onStartProjectWithTag={handleStartFromCaseTag}
-      />
+        <CaseStudyModal
+          isOpen={selectedProjectCase !== null}
+          onClose={() => setSelectedProjectCase(null)}
+          project={selectedProjectCase}
+          onStartProjectWithTag={handleStartFromCaseTag}
+        />
+      </Suspense>
     </div>
   );
 }

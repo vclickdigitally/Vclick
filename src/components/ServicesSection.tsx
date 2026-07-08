@@ -27,7 +27,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   };
 
   return (
-    <section id="services" className="relative z-20 py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+    <section id="services" className="relative z-20 pt-10 pb-16 md:pt-14 md:pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
       
       {/* ====================================================
           SECTION HEADER (WHAT WE DO)

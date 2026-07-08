@@ -50,8 +50,31 @@ export const BlogSection: React.FC = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
+  
+  const sectionRef = React.useRef<HTMLDivElement>(null);
+  const [hasIntersected, setHasIntersected] = useState(false);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasIntersected(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!hasIntersected) return;
+
     const fetchPosts = async () => {
       try {
         const res = await fetch('https://vclickdigitally.com/blog/wp-json/wp/v2/posts?_embed&per_page=4');
@@ -106,10 +129,10 @@ export const BlogSection: React.FC = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, [hasIntersected]);
 
   return (
-    <section id="insights" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] border-t border-white/5 max-w-7xl mx-auto w-full overflow-hidden">
+    <section ref={sectionRef} id="insights" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] border-t border-white/5 max-w-7xl mx-auto w-full overflow-hidden">
       
       {/* ====================================================
           SECTION HEADER

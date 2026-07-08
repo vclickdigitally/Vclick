@@ -61,7 +61,7 @@ export const TrustedBySection: React.FC = () => {
   };
 
   return (
-    <section className="relative z-20 py-16 md:py-24 bg-[#0B0B0B] border-t border-b border-white/5 overflow-hidden">
+    <section className="relative z-20 pt-10 pb-8 md:pt-14 md:pb-10 bg-[#0B0B0B] border-t border-b border-white/5 overflow-hidden">
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
         <motion.div
