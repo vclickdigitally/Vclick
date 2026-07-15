@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import { Logo } from './Navbar';
 import { Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
+import { services } from '@/config/navigation';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -32,19 +34,23 @@ export const Footer: React.FC = () => {
             SERVICES
           </h4>
           <ul className="flex flex-col gap-3.5 text-xs text-white/50 font-medium">
-            {[
-              { label: 'SEO Services', href: '/services/seo' },
-              { label: 'Website Development', href: '/services/website-development' },
-              { label: 'Meta Ads Management', href: '/services/meta-ads' },
-              { label: 'Branding & Social Media', href: '/services/branding-social-media' }
-            ].map((link) => (
-              <li key={link.label}>
-                <a 
-                  href={link.href}
-                  className="hover:text-[#DD183B] transition-colors relative py-0.5 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#DD183B] hover:after:w-full after:transition-all"
-                >
-                  {link.label}
-                </a>
+            {services.map((link) => (
+              <li key={link.title}>
+                {link.enabled ? (
+                  <Link 
+                    href={link.href}
+                    className="hover:text-[#DD183B] transition-colors relative py-0.5 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#DD183B] hover:after:w-full after:transition-all"
+                  >
+                    {link.title}
+                  </Link>
+                ) : (
+                  <span 
+                    className="text-white/35 cursor-not-allowed select-none relative py-0.5 flex items-center gap-1.5"
+                  >
+                    <span>{link.title}</span>
+                    <span className="text-[7px] font-bold uppercase tracking-wider text-[#DD183B] bg-[#DD183B]/10 px-1.5 py-0.5 rounded border border-[#DD183B]/20">Soon</span>
+                  </span>
+                )}
               </li>
             ))}
           </ul>
@@ -57,20 +63,29 @@ export const Footer: React.FC = () => {
           </h4>
           <ul className="flex flex-col gap-3.5 text-xs text-white/50 font-medium">
             {[
-              { label: 'About', href: '#about' },
-              { label: 'Our Work', href: '#projects' },
-              { label: 'Process', href: '#process' },
-              { label: 'Blog', href: '#insights' },
-              { label: 'FAQ', href: '#faq' },
-              { label: 'Contact', href: '#faq' }
+              { label: 'About', href: '/about', isUpcoming: true },
+              { label: 'Our Work', href: '/#projects' },
+              { label: 'Process', href: '/#process' },
+              { label: 'Blog', href: '/blog', isUpcoming: true },
+              { label: 'FAQ', href: '/#faq' },
+              { label: 'Contact', href: '/contact', isUpcoming: true }
             ].map((link) => (
               <li key={link.label}>
-                <a 
-                  href={link.href}
-                  className="hover:text-[#DD183B] transition-colors relative py-0.5 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#DD183B] hover:after:w-full after:transition-all"
-                >
-                  {link.label}
-                </a>
+                {link.isUpcoming ? (
+                  <span 
+                    className="text-white/35 cursor-not-allowed select-none relative py-0.5 flex items-center gap-1.5"
+                  >
+                    <span>{link.label}</span>
+                    <span className="text-[7px] font-bold uppercase tracking-wider text-[#DD183B] bg-[#DD183B]/10 px-1.5 py-0.5 rounded border border-[#DD183B]/20">Soon</span>
+                  </span>
+                ) : (
+                  <Link 
+                    href={link.href}
+                    className="hover:text-[#DD183B] transition-colors relative py-0.5 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#DD183B] hover:after:w-full after:transition-all"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

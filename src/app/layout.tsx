@@ -2,6 +2,7 @@ import "@/index.css";
 import React from "react";
 import { fontSans, fontDisplay } from "@/config/fonts";
 import { AppProviders } from "@/providers/AppProviders";
+import { MarketingLayout } from "@/components/MarketingLayout";
 
 export const metadata = {
   title: "VClick Digitally | Marketing & Web Development Agency",
@@ -17,7 +18,9 @@ export default function RootLayout({
     <html lang="en" className={`${fontSans.variable} ${fontDisplay.variable} scroll-smooth`}>
       <body className="bg-[#0B0B0B] text-white antialiased font-sans selection:bg-[#DD183B] selection:text-white">
         <AppProviders>
-          {children}
+          <MarketingLayout>
+            {children}
+          </MarketingLayout>
         </AppProviders>
       </body>
     </html>

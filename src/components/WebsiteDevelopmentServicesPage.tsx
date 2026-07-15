@@ -8,7 +8,7 @@ import {
   ArrowLeft, ArrowRight, ChevronDown, CheckCircle2, ArrowUpRight,
   Zap, Globe, Search, BarChart2, Code2, ShoppingBag,
   MapPin, Cpu, FileSearch, Link2, RefreshCw, Layers, Settings,
-  TrendingUp, Star, HelpCircle, TrendingDown, Activity, Award, ShieldCheck, Smartphone
+  TrendingUp, HelpCircle, TrendingDown, Activity, Award, ShieldCheck, Smartphone
 } from 'lucide-react';
 
 // ── ANIMATED COUNTER HOOK ─────────────────────────────────────────────────────
@@ -186,30 +186,7 @@ const PORTFOLIO_PROJECTS = [
   }
 ];
 
-// ── TESTIMONIALS DATA ─────────────────────────────────────────────────────────
-const TESTIMONIALS = [
-  {
-    name: 'Alexander Sterling',
-    role: 'Managing Director',
-    company: 'Vanguard Capital Partners',
-    verifiedRevenue: '+$14.8M AUM Growth',
-    quote: 'We vetted 8 high-end agencies in London and New York before selecting VClick Digitally. Their technical precision and aesthetic taste are on another planet. Our cost per acquisition dropped by 54% within two quarters.'
-  },
-  {
-    name: 'Elena Rostova',
-    role: 'Founder & CEO',
-    company: 'Lumière BioTech',
-    verifiedRevenue: '3.8x Valuation Lift',
-    quote: 'When you are raising a Series B, your digital brand is everything. VClick built an interactive flagship that stunned our institutional investors. Furthermore, our organic search traffic for core biotech terms grew 620%.'
-  },
-  {
-    name: 'Liam O’Connor',
-    role: 'Head of Growth',
-    company: 'Apex Cloud Systems',
-    verifiedRevenue: '$840k Monthly Inbound ARR',
-    quote: 'They treat our marketing budget like their own money. The PPC bidding scripts they deployed eliminated nearly $30k of monthly ad waste while doubling our qualified enterprise demo bookings.'
-  }
-];
+
 
 // ── HERO SUB-COMPONENT ────────────────────────────────────────────────────
 const WebHero: React.FC = () => {
@@ -1173,66 +1150,7 @@ export const WebsiteDevelopmentServicesPage: React.FC<WebsiteDevelopmentServices
         </div>
       </section>
 
-      {/* SECTION 11 — TESTIMONIALS */}
-      <section className="relative z-10 border-t border-white/5 bg-[#0D0D0D]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-24">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="h-[1.5px] w-10 bg-[#DD183B]" />
-                <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#DD183B]">
-                  Verified Executive Consensus
-                </span>
-              </div>
-              <h2 className="text-5xl sm:text-7xl font-black tracking-tighter uppercase font-display text-white">
-                What Institutional <span className="text-transparent text-stroke-white">Leaders</span> Say
-              </h2>
-            </div>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {TESTIMONIALS.map((item, idx) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="p-8 sm:p-10 rounded-3xl bg-[#111111] border border-white/10 flex flex-col justify-between relative group hover:border-[#DD183B]/50 transition-all duration-400"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex gap-1 text-[#DD183B]">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-xs font-black uppercase font-display tracking-wider text-[#DD183B] bg-[#DD183B]/10 px-3 py-1 rounded-full border border-[#DD183B]/20">
-                      {item.verifiedRevenue}
-                    </span>
-                  </div>
-
-                  <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-8 font-sans">
-                    "{item.quote}"
-                  </p>
-                </div>
-
-                <div className="pt-6 border-t border-white/5 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#DD183B] to-[#111111] flex items-center justify-center text-white font-black font-display text-xl shrink-0">
-                    {item.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold text-white tracking-tight">{item.name}</h3>
-                    <p className="text-xs text-[#8E8E8E] uppercase tracking-wider font-medium">
-                      {item.role} // <span className="text-white/80">{item.company}</span>
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 12 — FAQ */}
       <section className="relative z-10 border-t border-white/5">

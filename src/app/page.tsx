@@ -1,9 +1,5 @@
 import React, { Suspense } from 'react';
-import { CustomCursor } from '../components/CustomCursor';
-import { BackgroundDecoration } from '../components/BackgroundDecoration';
-import { Navbar } from '../components/Navbar';
 import { HeroSection } from '../components/HeroSection';
-
 import { AboutSection } from '../components/AboutSection';
 import { ServicesSection } from '../components/ServicesSection';
 import { WhyChooseVClick } from '../components/WhyChooseVClick';
@@ -15,12 +11,6 @@ import { GoogleReviewsSection } from '../components/GoogleReviewsSection';
 import { BlogSection } from '../components/BlogSection';
 import { FaqSection } from '../components/FaqSection';
 import { CtaSection } from '../components/CtaSection';
-import { Footer } from '../components/Footer';
-
-// Modals are fully self-contained Client Components, we just import and render them at the bottom.
-import { ProjectModal } from '../components/ProjectModal';
-import { ShowreelModal } from '../components/ShowreelModal';
-import { CaseStudyModal } from '../components/CaseStudyModal';
 import { buildMetadata, generateJsonLdSchema } from '@/lib/metadata';
 
 // Centralized Metadata API Integration
@@ -46,7 +36,7 @@ export default function Home() {
   });
 
   return (
-    <div className="relative min-h-screen bg-[#0B0B0B] text-white font-sans selection:bg-[#DD183B] selection:text-white flex flex-col justify-between">
+    <>
       {/* Dynamic JSON-LD Schema Injections */}
       <script
         type="application/ld+json"
@@ -56,15 +46,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-
-      {/* Precision Follower Custom Cursor */}
-      <CustomCursor />
-
-      {/* Atmospheric Mesh Gradients & Grid Background */}
-      <BackgroundDecoration />
-
-      {/* Persistent Navigation Header */}
-      <Navbar />
 
       {/* Main Content Assembly */}
       <main className="flex-1 flex flex-col relative z-10 overflow-hidden pt-16">
@@ -107,16 +88,6 @@ export default function Home() {
           <CtaSection />
         </Suspense>
       </main>
-
-      {/* Premium Footer */}
-      <Suspense fallback={<div className="min-h-[100px]" />}>
-        <Footer />
-      </Suspense>
-
-      {/* Modals are self-contained client hooks */}
-      <ProjectModal />
-      <ShowreelModal />
-      <CaseStudyModal />
-    </div>
+    </>
   );
 }
