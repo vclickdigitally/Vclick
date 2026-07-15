@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "VClick Digitally",
   shortName: "VClick",
   description: "Enterprise Growth Agency - SEO, Next.js Development, and Visual Product Design.",
-  url: process.env.NEXTAUTH_URL || "https://vclickdigitally.com",
+  url: process.env.APP_URL || "https://vclickdigitally.com",
   ogImage: "/og-image.png",
   links: {
     twitter: "https://twitter.com/vclickdigitally",

@@ -628,12 +628,7 @@ export const SeoServicesPage: React.FC = () => {
         </p>
       </div>
 
-      {/* ════════════════════════════════════════════════════
-          SECTION 1 — HERO (PREMIUM TWO-COLUMN)
-      ════════════════════════════════════════════════════ */}
-      <SeoHero onStartProject={onStartProject} onScrollDown={() => {
-        document.getElementById('seo-what-is')?.scrollIntoView({ behavior: 'smooth' });
-      }} />
+      <SeoHero />
 
       {/* ════════════════════════════════════════════════════
           SECTION 3 — WHAT IS SEO

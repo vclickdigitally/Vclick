@@ -34,7 +34,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: 'web-development',
     title: 'Web Development',
     tagline: 'WordPress, Shopify, Wix & Custom Web Flagships',
-    category: 'WEB DEV',
+    category: 'DEV',
     description:
       'Business websites to full e-commerce stores — built on WordPress, Shopify, Wix and Squarespace. Fast, clean, conversion-focused and built to rank on Google from day one.',
     keyDeliverables: [
@@ -110,7 +110,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: 'social-presence',
     title: 'Social Presence',
     tagline: 'End-to-End Content, Poster Design & On-Brand Management',
-    category: 'SOCIAL',
+    category: 'BRANDING',
     description:
       'Social media end-to-end — strategy, content creation, poster design and posting. Consistent, on-brand presence across Instagram, Facebook and LinkedIn without you lifting a finger.',
     keyDeliverables: [
