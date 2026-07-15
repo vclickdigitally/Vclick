@@ -38,6 +38,8 @@ const pathsToDelete = [
   'src/constants/routes.ts',
   '.eslintrc.json',
   'src/lib/permissions.ts',
+  'src/app/services/[slug]',
+  'src/components/ServiceDetailPage.tsx',
 ];
 
 console.log('🧹 Starting cleanup process (Second Pass)...');

@@ -1,34 +1,6 @@
 {
   "version": 3,
-  "middleware": {
-    "/": {
-      "files": [
-        "server/edge-runtime-webpack.js",
-        "server/src/middleware.js"
-      ],
-      "name": "src/middleware",
-      "page": "/",
-      "matchers": [
-        {
-          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/admin(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\.json|\\.rsc|\\.segments\\/.+\\.segment\\.rsc)?[\\/#\\?]?$",
-          "originalSource": "/admin/:path*"
-        },
-        {
-          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/((?!api|_next\\/static|_next\\/image|favicon.ico|logo.png|.*\\..*).*))(\\.json|\\.rsc|\\.segments\\/.+\\.segment\\.rsc)?[\\/#\\?]?$",
-          "originalSource": "/((?!api|_next/static|_next/image|favicon.ico|logo.png|.*\\..*).*)"
-        }
-      ],
-      "wasm": [],
-      "assets": [],
-      "env": {
-        "__NEXT_BUILD_ID": "F9D--ZOzxQOWvFaGRsntX",
-        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "z8FsUcIv9NOYlTNJ3GRIv8ajtP+paQz35JmjpbRumB8=",
-        "__NEXT_PREVIEW_MODE_ID": "0ff21b2a71e0ea361a8c9ea99f63e988",
-        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b48832c416e06332c557982a2ce89b00dad09959d0cf7cee6e9cc874ed91e477",
-        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "24fec7e6fccfbde72286ccf7cbc1bf1c7502fbd2eb4e7ff928f81f16bdeb4bc7"
-      }
-    }
-  },
+  "middleware": {},
   "functions": {
     "/twitter-image/route": {
       "files": [
@@ -65,7 +37,7 @@
         }
       ],
       "env": {
-        "__NEXT_BUILD_ID": "F9D--ZOzxQOWvFaGRsntX",
+        "__NEXT_BUILD_ID": "A2a5YGn8NbClPcUKSZzGA",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "z8FsUcIv9NOYlTNJ3GRIv8ajtP+paQz35JmjpbRumB8=",
         "__NEXT_PREVIEW_MODE_ID": "0ff21b2a71e0ea361a8c9ea99f63e988",
         "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b48832c416e06332c557982a2ce89b00dad09959d0cf7cee6e9cc874ed91e477",
@@ -107,7 +79,7 @@
         }
       ],
       "env": {
-        "__NEXT_BUILD_ID": "F9D--ZOzxQOWvFaGRsntX",
+        "__NEXT_BUILD_ID": "A2a5YGn8NbClPcUKSZzGA",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "z8FsUcIv9NOYlTNJ3GRIv8ajtP+paQz35JmjpbRumB8=",
         "__NEXT_PREVIEW_MODE_ID": "0ff21b2a71e0ea361a8c9ea99f63e988",
         "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b48832c416e06332c557982a2ce89b00dad09959d0cf7cee6e9cc874ed91e477",
@@ -115,7 +87,5 @@
       }
     }
   },
-  "sortedMiddleware": [
-    "/"
-  ]
+  "sortedMiddleware": []
 }
