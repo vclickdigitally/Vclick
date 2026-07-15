@@ -171,6 +171,8 @@ async function main() {
         slug: pageData.slug,
         content: pageData.content,
         published: pageData.published,
+        featuredImage: pageData.seo.featuredImage,
+        featuredImageAlt: pageData.seo.featuredImageAlt,
       }
     });
 
@@ -188,8 +190,6 @@ async function main() {
         noFollow: pageData.seo.noFollow,
         canonicalUrl: pageData.seo.canonicalUrl,
         structuredData: pageData.seo.structuredData,
-        featuredImage: pageData.seo.featuredImage,
-        featuredImageAlt: pageData.seo.featuredImageAlt,
       }
     });
 
@@ -205,8 +205,8 @@ async function main() {
       noIndex: seoConfig.noIndex,
       noFollow: seoConfig.noFollow,
       structuredData: seoConfig.structuredData || "",
-      featuredImage: seoConfig.featuredImage || "",
-      featuredImageAlt: seoConfig.featuredImageAlt || "",
+      featuredImage: page.featuredImage || "",
+      featuredImageAlt: page.featuredImageAlt || "",
       parsedImages: assets.parsedImages,
       parsedLinks: assets.parsedLinks,
       authorBio: adminUser.bio || "",
@@ -328,6 +328,8 @@ async function main() {
         published: blogData.published,
         publishedAt: blogData.publishedAt,
         scheduledAt: blogData.scheduledAt,
+        featuredImage: blogData.seo.featuredImage,
+        featuredImageAlt: blogData.seo.featuredImageAlt,
       }
     });
 
@@ -344,8 +346,6 @@ async function main() {
         noFollow: blogData.seo.noFollow,
         canonicalUrl: blogData.seo.canonicalUrl,
         structuredData: blogData.seo.structuredData,
-        featuredImage: blogData.seo.featuredImage,
-        featuredImageAlt: blogData.seo.featuredImageAlt,
       }
     });
 
@@ -360,8 +360,8 @@ async function main() {
       noIndex: seoConfig.noIndex,
       noFollow: seoConfig.noFollow,
       structuredData: seoConfig.structuredData || "",
-      featuredImage: seoConfig.featuredImage || "",
-      featuredImageAlt: seoConfig.featuredImageAlt || "",
+      featuredImage: blog.featuredImage || "",
+      featuredImageAlt: blog.featuredImageAlt || "",
       parsedImages: assets.parsedImages,
       parsedLinks: assets.parsedLinks,
       authorBio: adminUser.bio || "",
