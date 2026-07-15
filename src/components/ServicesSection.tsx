@@ -69,12 +69,11 @@ export const ServicesSection: React.FC = () => {
               data-interactive="true"
               className="group relative bg-[#111111]/80 backdrop-blur-xl border border-white/15 hover:border-[#DD183B]/40 p-8 rounded-2xl shadow-2xl transition-all duration-400 cursor-pointer overflow-hidden flex flex-col justify-between min-h-[380px]"
             >
-              {/* Full Card Cover Link for SEO and Routing */}
               <a
                 href={
                   service.id === 'web-development' ? '/services/website-development' :
                   service.id === 'organic-growth' ? '/services/seo' :
-                  service.id === 'performance-marketing' ? '/services/meta-ads' :
+                  service.id === 'performance-marketing' ? '/services/performance-marketing' :
                   '/services/branding-social-media'
                 }
                 className="absolute inset-0 z-20"

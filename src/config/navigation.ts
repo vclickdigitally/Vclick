@@ -25,12 +25,12 @@ export const services: ServiceLink[] = [
   {
     title: "Performance Marketing",
     href: "/services/performance-marketing",
-    enabled: false
+    enabled: true
   },
   {
     title: "Branding & Social Media",
     href: "/services/branding-social-media",
-    enabled: false
+    enabled: true
   }
 ];
 

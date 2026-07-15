@@ -10,6 +10,7 @@ import {
   MapPin, Cpu, FileSearch, Link2, RefreshCw, Layers, Settings,
   TrendingUp, Star, HelpCircle, TrendingDown, Activity, Award
 } from 'lucide-react';
+import { ExploreServices } from './ExploreServices';
 
 // ── ANIMATED COUNTER HOOK ─────────────────────────────────────────────────────
 function useAnimatedCounter(target: number, duration = 1800, start = false) {
@@ -1131,6 +1132,7 @@ export const SeoServicesPage: React.FC = () => {
         </div>
       </section>
 
+      <ExploreServices currentService="seo" />
     </div>
   );
 };
