@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { FEATURED_PROJECTS } from '../data/mockData';
 import { ProjectCase } from '../types';
 import { ArrowUpRight, TrendingUp, Quote } from 'lucide-react';

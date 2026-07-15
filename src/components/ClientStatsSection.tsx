@@ -1,5 +1,7 @@
+"use client";
+
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 
 export const ClientStatsSection: React.FC = () => {
   const stats = [

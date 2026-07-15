@@ -1,20 +1,12 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+"use client";
+
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { useModals } from '@/providers/ModalProvider';
 
-interface ProjectModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  initialBudget?: number;
-  initialService?: string;
-}
-
-export const ProjectModal: React.FC<ProjectModalProps> = ({
-  isOpen,
-  onClose,
-  initialBudget = 15000,
-  initialService = 'FULL',
-}) => {
+export const ProjectModal: React.FC = () => {
+  const { isProjectOpen: isOpen, closeProject: onClose, initialBudget, initialService } = useModals();
   const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState({
     name: '',
@@ -25,6 +17,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     service: initialService,
     timeline: 'Immediate (Next 14 Days)',
   });
+
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      budget: initialBudget,
+      service: initialService
+    }));
+  }, [initialBudget, initialService]);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   if (!isOpen) return null;

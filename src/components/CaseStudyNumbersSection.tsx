@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { CASE_STUDY_STATS } from '../data/mockData';
 
 export const CaseStudyNumbersSection: React.FC = () => {

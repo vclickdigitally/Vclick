@@ -1,5 +1,7 @@
+"use client";
+
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { PROCESS_STEPS } from '../data/mockData';
 import { Check } from 'lucide-react';
 

@@ -1,15 +1,17 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { ShieldCheck, Cpu, Gauge, Zap } from 'lucide-react';
 
-interface HeroSectionProps {
-  onLaunchExperience: () => void;
-  onOpenShowreel?: () => void;
-}
+export const HeroSection: React.FC = () => {
+  const onLaunchExperience = () => {
+    const servicesElement = document.getElementById('services');
+    if (servicesElement) {
+      servicesElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-export const HeroSection: React.FC<HeroSectionProps> = ({
-  onLaunchExperience,
-}) => {
   // Score count-up state for Card 01
   const [score, setScore] = useState(0);
 

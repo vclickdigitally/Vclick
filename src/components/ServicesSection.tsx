@@ -1,14 +1,13 @@
+"use client";
+
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { SERVICES_DATA } from '../data/mockData';
 import { ServiceItem } from '../types';
 import { Globe, TrendingUp, Target, Smartphone, ArrowRight } from 'lucide-react';
 
-interface ServicesSectionProps {
-  onSelectService: (service: ServiceItem) => void;
-}
+export const ServicesSection: React.FC = () => {
 
-export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectService }) => {
   
   // Icon Mapping Helper
   const getIcon = (id: string) => {

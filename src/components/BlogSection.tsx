@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, Tag, AlertCircle } from 'lucide-react';
 
 interface BlogPost {

@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Globe, ShieldCheck, CheckCircle2, Cpu, ShoppingBag, GraduationCap, Megaphone } from 'lucide-react';
 
 interface Project {

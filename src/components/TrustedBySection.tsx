@@ -1,5 +1,7 @@
+"use client";
+
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { TRUSTED_BRANDS } from '../data/mockData';
 import { ShieldCheck, ArrowUpRight } from 'lucide-react';
 

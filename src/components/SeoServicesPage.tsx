@@ -1,5 +1,9 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'motion/react';
+import Link from 'next/link';
+import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
+import { useModals } from '@/providers/ModalProvider';
 import {
   ArrowLeft, ArrowRight, ChevronDown, CheckCircle2, ArrowUpRight,
   Zap, Globe, Search, BarChart2, Code2, ShoppingBag,
@@ -123,14 +127,14 @@ const PLATFORMS = [
 ];
 
 // ── SEO HERO SUB-COMPONENT ────────────────────────────────────────────────────
-interface SeoHeroProps {
-  onStartProject: () => void;
-  onScrollDown: () => void;
-}
-
 const HERO_WORDS = ['SEO', 'SERVICES', 'THAT', 'TURN', 'RANKINGS', 'INTO'];
 
-const SeoHero: React.FC<SeoHeroProps> = ({ onStartProject, onScrollDown }) => {
+const SeoHero: React.FC = () => {
+  const { openProject } = useModals();
+  const onStartProject = () => openProject(15000, "SEO");
+  const onScrollDown = () => {
+    document.getElementById('seo-what-is')?.scrollIntoView({ behavior: 'smooth' });
+  };
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
@@ -588,7 +592,9 @@ const SeoHero: React.FC<SeoHeroProps> = ({ onStartProject, onScrollDown }) => {
 };
 
 // ── MAIN COMPONENT ────────────────────────────────────────────────────────────
-export const SeoServicesPage: React.FC<SeoServicesPageProps> = ({ onNavigateHome, onStartProject }) => {
+export const SeoServicesPage: React.FC = () => {
+  const { openProject } = useModals();
+  const onStartProject = () => openProject(15000, "SEO");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [activePlatform, setActivePlatform] = useState(0);
 
@@ -610,15 +616,15 @@ export const SeoServicesPage: React.FC<SeoServicesPageProps> = ({ onNavigateHome
 
       {/* ── BREADCRUMB + BACK NAV ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-28 pb-4">
-        <button
-          onClick={onNavigateHome}
-          className="group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-[#8E8E8E] hover:text-white mb-6 transition-colors cursor-pointer"
+        <Link
+          href="/"
+          className="group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-[#8E8E8E] hover:text-white mb-6 transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
           <span>Back to Homepage</span>
-        </button>
+        </Link>
         <p className="text-[11px] text-white/30 font-sans tracking-wider">
-          Home &rsaquo; Services &rsaquo; <span className="text-[#DD183B]">SEO Services</span>
+          <Link href="/" className="hover:text-white transition-colors">Home</Link> &rsaquo; <Link href="/#services" className="hover:text-white transition-colors">Services</Link> &rsaquo; <span className="text-[#DD183B]">SEO Services</span>
         </p>
       </div>
 
@@ -650,7 +656,7 @@ export const SeoServicesPage: React.FC<SeoServicesPageProps> = ({ onNavigateHome
                 SEO — Search Engine Optimisation — is the practice of improving your website so it appears higher in Google's organic search results when people search for what you sell or offer.
               </p>
               <p className="text-[#8E8E8E] text-base sm:text-lg leading-relaxed mb-5 font-sans">
-                It is not about tricking Google. It is about making your website genuinely more useful, more credible, and more technically sound than your competitors — so Google has every reason to show your page first.
+                It is not about tricking Google. It is about making your website genuinely more useful, more credible, and more technically sound than your competitors. If you need a new platform built or redesigned, explore our <Link href="/services/website-development" className="text-[#DD183B] hover:underline font-semibold">Website Development Services</Link> to ensure it is SEO-ready from day one.
               </p>
               <p className="text-white text-base sm:text-lg leading-relaxed font-sans font-semibold">
                 Paid advertising stops the moment your budget runs out. SEO builds an asset that compounds — every ranking earned, every piece of content published, every authoritative link built continues to work for your business long after the initial investment.
@@ -1111,12 +1117,12 @@ export const SeoServicesPage: React.FC<SeoServicesPageProps> = ({ onNavigateHome
               <span>Get Your Free SEO Audit</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
-            <button
-              onClick={onNavigateHome}
-              className="px-8 py-5 font-bold uppercase text-xs tracking-[0.2em] rounded-xl transition-all duration-300 border border-white/10 hover:border-white/25 text-white/70 hover:text-white cursor-pointer"
+            <Link
+              href="/"
+              className="px-8 py-5 font-bold uppercase text-xs tracking-[0.2em] rounded-xl transition-all duration-300 border border-white/10 hover:border-white/25 text-white/70 hover:text-white flex items-center justify-center cursor-pointer"
             >
               Return to Homepage
-            </button>
+            </Link>
           </motion.div>
 
           <motion.div {...fadeUp} transition={{ duration: 0.65, delay: 0.3 }} className="flex items-center justify-center gap-6 flex-wrap">

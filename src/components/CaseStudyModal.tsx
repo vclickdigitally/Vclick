@@ -1,21 +1,14 @@
+"use client";
+
 import React from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { X, TrendingUp, CheckCircle2, ArrowRight, BarChart2, ShieldAlert } from 'lucide-react';
 import { ProjectCase } from '../types';
+import { useModals } from '@/providers/ModalProvider';
 
-interface CaseStudyModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  project: ProjectCase | null;
-  onStartProjectWithTag?: (serviceTag: string) => void;
-}
-
-export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
-  isOpen,
-  onClose,
-  project,
-  onStartProjectWithTag,
-}) => {
+export const CaseStudyModal: React.FC = () => {
+  const { selectedCase: project, closeCase: onClose, openProject } = useModals();
+  const isOpen = project !== null;
   if (!isOpen || !project) return null;
 
   return (
@@ -135,7 +128,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             <button
               onClick={() => {
                 onClose();
-                if (onStartProjectWithTag) onStartProjectWithTag(project.serviceTags[0]);
+                openProject(20000, "FULL");
               }}
               className="w-full sm:w-auto bg-[#DD183B] hover:bg-white hover:text-[#0B0B0B] text-white py-4 px-8 rounded-xl font-black uppercase text-xs tracking-widest transition-all duration-300 shadow-[0_0_25px_rgba(221,24,59,0.4)] flex items-center justify-center gap-2 cursor-pointer"
             >

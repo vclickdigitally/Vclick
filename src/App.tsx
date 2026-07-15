@@ -19,6 +19,7 @@ const CtaSection = lazy(() => import('./components/CtaSection').then(m => ({ def
 const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
 const ServiceDetailPage = lazy(() => import('./components/ServiceDetailPage').then(m => ({ default: m.ServiceDetailPage })));
 const SeoServicesPage = lazy(() => import('./components/SeoServicesPage').then(m => ({ default: m.SeoServicesPage })));
+const WebsiteDevelopmentServicesPage = lazy(() => import('./components/WebsiteDevelopmentServicesPage').then(m => ({ default: m.WebsiteDevelopmentServicesPage })));
 
 // Modals lazy loaded
 const ProjectModal = lazy(() => import('./components/ProjectModal').then(m => ({ default: m.ProjectModal })));
@@ -139,7 +140,14 @@ export default function App() {
               onStartProject={handleStartProject}
             />
           </Suspense>
-        ) : currentPath.startsWith('/services/') ? (
+        ) : currentPath === '/services/website-development' || currentPath === '/services/website-development/' ? (
+          <Suspense fallback={<div className="min-h-[80px]" />}>
+            <WebsiteDevelopmentServicesPage
+              onNavigateHome={navigateToHome}
+              onStartProject={handleStartProject}
+            />
+          </Suspense>
+) : currentPath.startsWith('/services/') ? (
           <Suspense fallback={<div className="min-h-[80px]" />}>
             <ServiceDetailPage
               path={currentPath}

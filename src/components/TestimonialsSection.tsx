@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { TESTIMONIALS } from '../data/mockData';
 import { Star, BadgeCheck } from 'lucide-react';
 

@@ -1,13 +1,12 @@
+"use client";
+
 import React from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { X, Play, Volume2, Maximize2, Sparkles, Award } from 'lucide-react';
+import { useModals } from '@/providers/ModalProvider';
 
-interface ShowreelModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose }) => {
+export const ShowreelModal: React.FC = () => {
+  const { isShowreelOpen: isOpen, closeShowreel: onClose } = useModals();
   if (!isOpen) return null;
 
   return (

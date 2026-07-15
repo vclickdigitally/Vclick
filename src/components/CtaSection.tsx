@@ -1,12 +1,13 @@
+"use client";
+
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { useModals } from '@/providers/ModalProvider';
 
-interface CtaSectionProps {
-  onStartProject: () => void;
-}
+export const CtaSection: React.FC = () => {
+  const { openProject } = useModals();
 
-export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
   return (
     <section className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#111111] border-t border-white/10 overflow-hidden">
       {/* Background Spotlight */}
@@ -68,7 +69,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
         {/* Button Wrapper */}
         <div className="flex flex-col items-center justify-center gap-3">
           <button
-            onClick={onStartProject}
+            onClick={() => openProject(25000, "FULL")}
             data-interactive="true"
             className="group w-full sm:w-auto bg-[#DD183B] hover:bg-white hover:text-[#0B0B0B] text-white px-12 py-6 font-black uppercase text-xs sm:text-sm tracking-[0.25em] transition-all duration-300 rounded-xl shadow-[0_0_55px_rgba(221,24,59,0.55)] hover:scale-[1.05] cursor-pointer flex items-center justify-center gap-3"
           >

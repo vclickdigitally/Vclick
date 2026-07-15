@@ -1,14 +1,18 @@
+"use client";
+
 import React from 'react';
-import { motion } from 'motion/react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, ShieldCheck, Globe, Star, ArrowUpRight } from 'lucide-react';
+import { useModals } from '@/providers/ModalProvider';
 
 interface ServiceDetailProps {
   path: string;
-  onNavigateHome: () => void;
-  onStartProject: () => void;
 }
 
-export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({ path, onNavigateHome, onStartProject }) => {
+export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({ path }) => {
+  const { openProject } = useModals();
+  const onStartProject = () => openProject(20000, "FULL");
   // Determine service details based on URL pathname
   let title = 'Web Development';
   let tagline = 'High-Performance Web Design & Dev Sprints';
@@ -52,13 +56,13 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({ path, onNaviga
       <main className="flex-1 max-w-4xl mx-auto px-6 md:px-12 py-16 w-full relative z-10">
         
         {/* Back navigation button */}
-        <button
-          onClick={onNavigateHome}
-          className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#8E8E8E] hover:text-white mb-12 transition-colors cursor-pointer"
+        <Link
+          href="/"
+          className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#8E8E8E] hover:text-white mb-12 transition-colors"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
           <span>Back to Homepage</span>
-        </button>
+        </Link>
 
         {/* Tagline eyebrow */}
         <div className="flex items-center gap-3 mb-4">
@@ -123,12 +127,12 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({ path, onNaviga
             <span>Let's Talk Growth</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
-          <button
-            onClick={onNavigateHome}
-            className="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white px-8 py-5 font-bold uppercase text-xs tracking-[0.2em] rounded-xl transition-all duration-300 border border-white/10 cursor-pointer"
+          <Link
+            href="/"
+            className="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white px-8 py-5 font-bold uppercase text-xs tracking-[0.2em] rounded-xl transition-all duration-300 border border-white/10 flex items-center justify-center cursor-pointer"
           >
             Return to Homepage
-          </button>
+          </Link>
         </div>
 
       </main>

@@ -1,5 +1,7 @@
+"use client";
+
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 
 export const WhyChooseVClick: React.FC = () => {
   const cards = [
