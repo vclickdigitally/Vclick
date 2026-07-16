@@ -1,20 +1,17 @@
 "use client";
 
 import React, { Suspense } from 'react';
-import { CustomCursor } from './CustomCursor';
 import { BackgroundDecoration } from './BackgroundDecoration';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { ProjectModal } from './ProjectModal';
 import { ShowreelModal } from './ShowreelModal';
 import { CaseStudyModal } from './CaseStudyModal';
+import { FloatingWhatsApp } from './FloatingWhatsApp';
 
 export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="relative min-h-screen bg-[#0B0B0B] text-white font-sans selection:bg-[#DD183B] selection:text-white flex flex-col justify-between">
-      {/* Precision Follower Custom Cursor */}
-      <CustomCursor />
-
       {/* Atmospheric Mesh Gradients & Grid Background */}
       <BackgroundDecoration />
 
@@ -35,6 +32,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
       <ProjectModal />
       <ShowreelModal />
       <CaseStudyModal />
+      <FloatingWhatsApp />
     </div>
   );
 };

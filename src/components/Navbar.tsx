@@ -194,7 +194,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-x-0 top-full bg-[#0B0B0B]/98 backdrop-blur-2xl border-b border-white/10 p-8 flex flex-col gap-6 shadow-2xl overflow-y-auto max-h-[80vh]"
+            className="lg:hidden absolute inset-x-0 top-full bg-[#0B0B0B]/98 backdrop-blur-2xl border-b border-white/10 p-8 flex flex-col gap-6 shadow-2xl overflow-y-auto max-h-[80vh]"
           >
             <div className="flex flex-col gap-4 text-sm font-bold uppercase tracking-widest">
               {navLinks.map((link) => {

@@ -35,17 +35,17 @@ export const services: ServiceLink[] = [
 ];
 
 export const homepageLinks: NavLink[] = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "#services", isServices: true },
-  { label: "Our Work", href: "/#projects" },
-  { label: "Process", href: "/#process" },
-  { label: "Insights", href: "/#insights" },
-  { label: "FAQ", href: "/#faq" }
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "https://vclickdigitally.com/blog" },
+  { label: "Contact", href: "/contact" }
 ];
 
 export const internalLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "#", isServices: true },
-  { label: "About", href: "/about", isUpcoming: true },
-  { label: "Blog", href: "/blog", isUpcoming: true },
-  { label: "Contact", href: "/contact", isUpcoming: true }
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "https://vclickdigitally.com/blog" },
+  { label: "Contact", href: "/contact" }
 ];

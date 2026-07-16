@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Logo } from './Navbar';
-import { Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Instagram, Phone, MessageCircle } from 'lucide-react';
 import { services } from '@/config/navigation';
 
 export const Footer: React.FC = () => {
@@ -63,29 +63,20 @@ export const Footer: React.FC = () => {
           </h4>
           <ul className="flex flex-col gap-3.5 text-xs text-white/50 font-medium">
             {[
-              { label: 'About', href: '/about', isUpcoming: true },
-              { label: 'Our Work', href: '/#projects' },
-              { label: 'Process', href: '/#process' },
-              { label: 'Blog', href: '/blog', isUpcoming: true },
-              { label: 'FAQ', href: '/#faq' },
-              { label: 'Contact', href: '/contact', isUpcoming: true }
+              { label: 'Home', href: '/' },
+              { label: 'About', href: '/about' },
+              { label: 'Services', href: '/#services' },
+              { label: 'Blog', href: 'https://vclickdigitally.com/blog' },
+              { label: 'Contact', href: '/contact' },
+              { label: 'FAQ', href: '/#faq' }
             ].map((link) => (
               <li key={link.label}>
-                {link.isUpcoming ? (
-                  <span 
-                    className="text-white/35 cursor-not-allowed select-none relative py-0.5 flex items-center gap-1.5"
-                  >
-                    <span>{link.label}</span>
-                    <span className="text-[7px] font-bold uppercase tracking-wider text-[#DD183B] bg-[#DD183B]/10 px-1.5 py-0.5 rounded border border-[#DD183B]/20">Soon</span>
-                  </span>
-                ) : (
-                  <Link 
-                    href={link.href}
-                    className="hover:text-[#DD183B] transition-colors relative py-0.5 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#DD183B] hover:after:w-full after:transition-all"
-                  >
-                    {link.label}
-                  </Link>
-                )}
+                <Link 
+                  href={link.href}
+                  className="hover:text-[#DD183B] transition-colors relative py-0.5 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#DD183B] hover:after:w-full after:transition-all"
+                >
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -97,6 +88,26 @@ export const Footer: React.FC = () => {
             CONTACT
           </h4>
           <div className="flex flex-col gap-4 text-xs text-white/60 font-medium">
+            {/* Phone link */}
+            <a 
+              href="tel:+919944941707" 
+              className="flex items-center justify-center md:justify-start gap-2 hover:text-[#DD183B] transition-colors group"
+            >
+              <Phone className="w-4 h-4 text-[#DD183B]" />
+              <span>+91 99449 41707</span>
+            </a>
+
+            {/* WhatsApp link */}
+            <a 
+              href="https://wa.me/919944941707" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center md:justify-start gap-2 hover:text-[#DD183B] transition-colors group"
+            >
+              <MessageCircle className="w-4 h-4 text-[#DD183B]" />
+              <span>+91 99449 41707</span>
+            </a>
+
             {/* Email link */}
             <a 
               href="mailto:hello@vclickdigitally.com" 
@@ -148,9 +159,9 @@ export const Footer: React.FC = () => {
           <span>© {currentYear} VClick Digitally. All Rights Reserved.</span>
           <span className="hidden sm:inline text-white/10">|</span>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
-            <a href="#" className="hover:text-white transition-colors">Sitemap</a>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
           </div>
         </div>
 
