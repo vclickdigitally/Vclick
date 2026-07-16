@@ -17,6 +17,8 @@ export const Logo: React.FC<{ isCompact?: boolean }> = ({ isCompact }) => {
       <img
         src="/logo.png"
         alt="VClick Digitally"
+        width={180}
+        height={48}
         onError={() => setImgError(true)}
         className={`${isCompact ? 'h-8 sm:h-9' : 'h-10 sm:h-12'} w-auto object-contain transition-all duration-300`}
       />

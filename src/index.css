@@ -64,3 +64,22 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes vc-pulse-glow-primary {
+  0%, 100% { transform: scale(1); opacity: 0.12; }
+  50% { transform: scale(1.12); opacity: 0.16; }
+}
+
+@keyframes vc-pulse-glow-secondary {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.1); }
+}
+
+.animate-glow-primary {
+  animation: vc-pulse-glow-primary 12s ease-in-out infinite;
+}
+
+.animate-glow-secondary {
+  animation: vc-pulse-glow-secondary 16s ease-in-out infinite;
+}
+
+

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import { BackgroundDecoration } from './BackgroundDecoration';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
@@ -24,9 +24,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
       </div>
 
       {/* Premium Footer */}
-      <Suspense fallback={<div className="min-h-[100px]" />}>
-        <Footer />
-      </Suspense>
+      <Footer />
 
       {/* Modals are self-contained client hooks */}
       <ProjectModal />

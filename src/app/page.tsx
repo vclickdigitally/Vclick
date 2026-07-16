@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { HeroSection } from '../components/HeroSection';
 import { AboutSection } from '../components/AboutSection';
 import { ServicesSection } from '../components/ServicesSection';
@@ -52,9 +52,8 @@ export default function Home() {
         {/* 1. Hero Section - Renders instantly */}
         <HeroSection />
 
-        {/* Below-the-fold content - Lazy loaded in Suspense */}
-        <Suspense fallback={<div className="min-h-[200px]" />}>
-          {/* About Us Section */}
+        {/* Below-the-fold content */}
+        {/* About Us Section */}
           <AboutSection />
 
           {/* 2. Our Services / Core Capabilities */}
@@ -86,7 +85,6 @@ export default function Home() {
 
           {/* 12. Monumental Turning Point CTA */}
           <CtaSection />
-        </Suspense>
       </main>
     </>
   );

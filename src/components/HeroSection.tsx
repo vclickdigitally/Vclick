@@ -152,12 +152,11 @@ export const HeroSection: React.FC = () => {
         {/* ====================================================
             RIGHT SIDE: PREMIUM SEO INTELLIGENCE DASHBOARD (Desktop/Tablet)
            ==================================================== */}
-        {!isMobile && (
           <div 
             ref={dashboardRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="col-span-12 lg:col-span-6 xl:col-span-6 relative flex flex-col items-center justify-center min-h-[500px] lg:min-h-[540px] py-6 lg:py-0"
+            className="hidden md:flex col-span-12 lg:col-span-6 xl:col-span-6 relative flex-col items-center justify-center min-h-[500px] lg:min-h-[540px] py-6 lg:py-0"
           >
             {/* ==================== DESKTOP CANVAS (Floating Dashboard) ==================== */}
             <div className="hidden lg:block relative w-full max-w-[520px] mx-auto h-[500px] perspective-[1000px]">
@@ -657,8 +656,6 @@ export const HeroSection: React.FC = () => {
             </div>
 
           </div>
-        )}
-
       </div>
     </section>
   );

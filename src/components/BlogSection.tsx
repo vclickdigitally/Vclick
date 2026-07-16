@@ -186,7 +186,7 @@ export const BlogSection: React.FC = () => {
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-full bg-[#111111]/80 backdrop-blur-xl border border-white/15 hover:border-[#DD183B]/40 p-4 rounded-2xl shadow-2xl transition-all duration-400 flex flex-col justify-between overflow-hidden cursor-pointer"
+                className="group relative w-full min-h-[380px] bg-[#111111]/80 backdrop-blur-xl border border-white/15 hover:border-[#DD183B]/40 p-4 rounded-2xl shadow-2xl transition-all duration-400 flex flex-col justify-between overflow-hidden cursor-pointer"
               >
                 {/* Ambient crimson glow inside card */}
                 <div className="absolute inset-0 bg-[#DD183B]/[0.01] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
