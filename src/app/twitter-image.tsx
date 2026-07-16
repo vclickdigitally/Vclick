@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'VClick Digitally';
+export const alt = 'VClick Digitally | Build. Rank. Scale.';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -10,36 +10,125 @@ export default async function Image() {
     (
       <div
         style={{
-          background: '#0B0B0B',
-          width: '100%',
           height: '100%',
+          width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderTop: '8px solid #DD183B',
+          backgroundColor: '#050505',
+          padding: '80px 80px',
+          justifyContent: 'space-between',
           position: 'relative',
-          fontFamily: 'sans-serif',
+          overflow: 'hidden',
         }}
       >
+        {/* Premium Radial Glow (Top Right) */}
         <div
           style={{
+            position: 'absolute',
+            top: '-150px',
+            right: '-150px',
+            width: '600px',
+            height: '600px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(193, 18, 31, 0.15) 0%, rgba(193, 18, 31, 0) 70%)',
+            filter: 'blur(60px)',
+          }}
+        />
+
+        {/* Brutalist Grid Coordinate Overlay */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
             display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            marginBottom: '20px',
+            flexDirection: 'column',
+            opacity: 0.06,
           }}
         >
-          <div style={{ width: '12px', height: '40px', background: '#DD183B' }} />
-          <span style={{ fontSize: '48px', fontWeight: 900, color: 'white', letterSpacing: '-0.05em' }}>
-            VCLICK / DIGITALLY
+          {/* Horizontal Gridlines */}
+          <div style={{ position: 'absolute', top: '10%', left: 0, right: 0, height: '1px', backgroundColor: '#ffffff' }} />
+          <div style={{ position: 'absolute', top: '30%', left: 0, right: 0, height: '1px', backgroundColor: '#ffffff' }} />
+          <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: '1px', backgroundColor: '#ffffff' }} />
+          <div style={{ position: 'absolute', top: '70%', left: 0, right: 0, height: '1px', backgroundColor: '#ffffff' }} />
+          <div style={{ position: 'absolute', top: '90%', left: 0, right: 0, height: '1px', backgroundColor: '#ffffff' }} />
+          
+          {/* Vertical Gridlines */}
+          <div style={{ position: 'absolute', left: '10%', top: 0, bottom: 0, width: '1px', backgroundColor: '#ffffff' }} />
+          <div style={{ position: 'absolute', left: '30%', top: 0, bottom: 0, width: '1px', backgroundColor: '#ffffff' }} />
+          <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: '1px', backgroundColor: '#ffffff' }} />
+          <div style={{ position: 'absolute', left: '70%', top: 0, bottom: 0, width: '1px', backgroundColor: '#ffffff' }} />
+          <div style={{ position: 'absolute', left: '90%', top: 0, bottom: 0, width: '1px', backgroundColor: '#ffffff' }} />
+        </div>
+
+        {/* Top Panel: Branding & Slogan */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', zIndex: 10 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ width: '4px', height: '24px', backgroundColor: '#C1121F' }} />
+            <span style={{ fontSize: '18px', fontWeight: 900, color: '#ffffff', letterSpacing: '0.18em', fontFamily: 'sans-serif' }}>
+              VCLICK / DIGITALLY
+            </span>
+          </div>
+          
+          <span style={{ fontSize: '10px', fontWeight: 700, color: '#C1121F', letterSpacing: '0.3em', fontFamily: 'sans-serif' }}>
+            THE NEW DIGITAL STANDARD
           </span>
         </div>
-        <p style={{ fontSize: '20px', color: '#8E8E8E', maxWidth: '600px', textAlign: 'center', lineHeight: 1.5 }}>
-          Enterprise Growth Agency - SEO, Next.js Development, and Visual Product Design.
-        </p>
+
+        {/* Editorial Headline */}
+        <div style={{ display: 'flex', flexDirection: 'column', zIndex: 10, marginTop: '20px' }}>
+          <h1
+            style={{
+              fontSize: '68px',
+              fontWeight: 900,
+              color: '#ffffff',
+              lineHeight: 1.05,
+              margin: 0,
+              letterSpacing: '-0.04em',
+              fontFamily: 'sans-serif',
+              textTransform: 'uppercase',
+            }}
+          >
+            BUILD. RANK. SCALE.
+          </h1>
+          <p
+            style={{
+              fontSize: '18px',
+              color: '#8E8E8E',
+              marginTop: '18px',
+              maxWidth: '750px',
+              lineHeight: 1.5,
+              fontFamily: 'sans-serif',
+            }}
+          >
+            Search Intelligence & Growth Sprints. Enterprise SEO, Next.js Development, and Visual Product Design.
+          </p>
+        </div>
+
+        {/* Bottom Panel: Capabilities & Domain */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', width: '100%', zIndex: 10 }}>
+          <div style={{ display: 'flex', gap: '24px' }}>
+            <span style={{ fontSize: '9px', fontWeight: 800, color: 'rgba(255, 255, 255, 0.4)', letterSpacing: '0.12em', fontFamily: 'sans-serif' }}>
+              SEO
+            </span>
+            <span style={{ fontSize: '9px', fontWeight: 800, color: 'rgba(255, 255, 255, 0.4)', letterSpacing: '0.12em', fontFamily: 'sans-serif' }}>
+              WEBSITE DEVELOPMENT
+            </span>
+            <span style={{ fontSize: '9px', fontWeight: 800, color: 'rgba(255, 255, 255, 0.4)', letterSpacing: '0.12em', fontFamily: 'sans-serif' }}>
+              PERFORMANCE MARKETING
+            </span>
+            <span style={{ fontSize: '9px', fontWeight: 800, color: 'rgba(255, 255, 255, 0.4)', letterSpacing: '0.12em', fontFamily: 'sans-serif' }}>
+              BRAND STRATEGY
+            </span>
+          </div>
+
+          <span style={{ fontSize: '11px', fontWeight: 800, color: '#C1121F', letterSpacing: '0.15em', fontFamily: 'sans-serif' }}>
+            vclickdigitally.com
+          </span>
+        </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+    }
   );
 }

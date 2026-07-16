@@ -54,9 +54,9 @@ export const ClientStatsSection: React.FC = () => {
 
               {/* Title & Description */}
               <div>
-                <h3 className="text-lg font-black uppercase tracking-wider font-display text-white mb-2 group-hover:text-[#DD183B] transition-colors duration-300">
+                <p className="text-lg font-black uppercase tracking-wider font-display text-white mb-2 group-hover:text-[#DD183B] transition-colors duration-300">
                   {stat.label}
-                </h3>
+                </p>
                 <p className="text-[#8E8E8E] text-xs sm:text-sm leading-relaxed font-sans">
                   {stat.description}
                 </p>

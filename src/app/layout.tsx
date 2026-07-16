@@ -3,10 +3,14 @@ import React from "react";
 import { fontSans, fontDisplay } from "@/config/fonts";
 import { AppProviders } from "@/providers/AppProviders";
 import { MarketingLayout } from "@/components/MarketingLayout";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "VClick Digitally | Marketing & Web Development Agency",
-  description: "Enterprise growth agency specialized in SEO, Next.js development, and design.",
+export const metadata = buildMetadata();
+
+export const viewport = {
+  themeColor: "#0B0B0B",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

@@ -185,7 +185,7 @@ export const GoogleReviewsSection: React.FC = () => {
                       {review.avatarText}
                     </div>
                     <div>
-                      <h4 className="text-[13px] font-bold text-white/70 tracking-tight font-sans">{review.name}</h4>
+                      <p className="text-[13px] font-bold text-white/70 tracking-tight font-sans">{review.name}</p>
                       <p className="text-[11px] text-white/30 font-sans mt-0.5">
                         {review.role}
                       </p>

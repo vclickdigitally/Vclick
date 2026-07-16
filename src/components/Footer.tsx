@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
           <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-[#DD183B] mb-5">
             QUICK LINKS
           </h4>
-          <ul className="flex flex-col gap-3.5 text-xs text-white/50 font-medium">
+          <ul className="flex flex-col gap-3.5 text-xs text-white/75 font-medium">
             {[
               { label: 'Home', href: '/' },
               { label: 'About', href: '/about' },
@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
           <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-[#DD183B] mb-5">
             CONTACT
           </h4>
-          <div className="flex flex-col gap-4 text-xs text-white/60 font-medium">
+          <div className="flex flex-col gap-4 text-xs text-white/80 font-medium">
             {/* Phone link */}
             <a 
               href="tel:+919944941707" 
@@ -166,8 +166,8 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Credit details */}
-        <div className="text-center sm:text-right text-white/20">
-          Designed & Developed by <span className="text-white/40 font-bold">VClick Digitally</span>
+        <div className="text-center sm:text-right text-white/60">
+          Designed & Developed by <span className="text-white/90 font-bold">VClick Digitally</span>
         </div>
 
       </div>

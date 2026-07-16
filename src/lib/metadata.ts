@@ -29,7 +29,14 @@ export function buildMetadata(options: MetadataOptions = {}): Metadata {
     : `${siteConfig.name} | Marketing & Web Development Agency`;
     
   const pageDescription = description || siteConfig.description;
-  const canonicalUrl = `${siteConfig.url}${path}`;
+  
+  // Ensure path starts with a leading slash
+  const formattedPath = path.startsWith("/") ? path : `/${path}`;
+
+  // Generate dynamic, customized Open Graph image URL using page meta parameters
+  const ogImageUrl = image === siteConfig.ogImage
+    ? `/api/og?title=${encodeURIComponent(title || "BUILD. RANK. SCALE.")}&description=${encodeURIComponent(pageDescription)}`
+    : image;
 
   return {
     metadataBase: new URL("https://vclickdigitally.com"),
@@ -37,9 +44,9 @@ export function buildMetadata(options: MetadataOptions = {}): Metadata {
     description: pageDescription,
     keywords: [...keywords, "digital agency", "SEO optimization", "Next.js 15 CMS", "web development agency"],
     alternates: {
-      canonical: canonicalUrl,
+      canonical: formattedPath,
       languages: {
-        "en-US": `${siteConfig.url}${path}`,
+        "en-US": formattedPath,
       },
     },
     manifest: "/manifest.json",
@@ -76,11 +83,11 @@ export function buildMetadata(options: MetadataOptions = {}): Metadata {
     openGraph: {
       title: pageTitle,
       description: pageDescription,
-      url: canonicalUrl,
+      url: formattedPath,
       siteName: siteConfig.name,
       images: [
         {
-          url: image,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: pageTitle,
@@ -92,7 +99,7 @@ export function buildMetadata(options: MetadataOptions = {}): Metadata {
       card: "summary_large_image",
       title: pageTitle,
       description: pageDescription,
-      images: [image],
+      images: [ogImageUrl],
       creator: "@vclickdigitally",
     },
   };
