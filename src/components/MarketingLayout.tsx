@@ -1,13 +1,16 @@
 "use client";
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { BackgroundDecoration } from './BackgroundDecoration';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
-import { ProjectModal } from './ProjectModal';
-import { ShowreelModal } from './ShowreelModal';
-import { CaseStudyModal } from './CaseStudyModal';
-import { FloatingWhatsApp } from './FloatingWhatsApp';
+
+// Dynamically import modals with ssr: false to avoid bloat on initial page load/hydration
+const ProjectModal = dynamic(() => import('./ProjectModal').then(mod => mod.ProjectModal), { ssr: false });
+const ShowreelModal = dynamic(() => import('./ShowreelModal').then(mod => mod.ShowreelModal), { ssr: false });
+const CaseStudyModal = dynamic(() => import('./CaseStudyModal').then(mod => mod.CaseStudyModal), { ssr: false });
+const FloatingWhatsApp = dynamic(() => import('./FloatingWhatsApp').then(mod => mod.FloatingWhatsApp), { ssr: false });
 
 export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (

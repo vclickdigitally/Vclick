@@ -3,25 +3,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const VALUE_POINTS = [
+  {
+    title: '✓ Strategy Before Execution',
+    description: 'Every decision starts with understanding your business, your audience, and your goals.'
+  },
+  {
+    title: '✓ Built Around Your Business',
+    description: 'No templates. No recycled strategies. Every solution is tailored.'
+  },
+  {
+    title: '✓ Transparent Collaboration',
+    description: 'Clear communication, honest reporting, and measurable progress.'
+  },
+  {
+    title: '✓ Long-Term Growth',
+    description: 'We focus on building sustainable digital success, not temporary wins.'
+  }
+];
+
 export const AboutSection: React.FC = () => {
-  const valuePoints = [
-    {
-      title: '✓ Strategy Before Execution',
-      description: 'Every decision starts with understanding your business, your audience, and your goals.'
-    },
-    {
-      title: '✓ Built Around Your Business',
-      description: 'No templates. No recycled strategies. Every solution is tailored.'
-    },
-    {
-      title: '✓ Transparent Collaboration',
-      description: 'Clear communication, honest reporting, and measurable progress.'
-    },
-    {
-      title: '✓ Long-Term Growth',
-      description: 'We focus on building sustainable digital success, not temporary wins.'
-    }
-  ];
 
   return (
     <section id="about" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] border-b border-white/5 overflow-hidden w-full">
@@ -74,7 +75,7 @@ export const AboutSection: React.FC = () => {
             </h3>
 
             <div className="flex flex-col">
-              {valuePoints.map((point, index) => (
+              {VALUE_POINTS.map((point, index) => (
                 <div key={point.title}>
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
@@ -94,7 +95,7 @@ export const AboutSection: React.FC = () => {
                   </motion.div>
                   
                   {/* Custom Separator Line */}
-                  {index < valuePoints.length - 1 && (
+                  {index < VALUE_POINTS.length - 1 && (
                     <div className="h-[1px] w-full bg-white/10" />
                   )}
                 </div>

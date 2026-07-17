@@ -3,29 +3,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const CARDS = [
+  {
+    num: '01',
+    title: 'Strategic Thinking',
+    description: 'Every project starts with understanding your business, your goals, and your audience before we recommend solutions.'
+  },
+  {
+    num: '02',
+    title: 'Tailored Solutions',
+    description: 'No two businesses are alike. Every strategy is designed specifically for your industry, challenges, and growth objectives.'
+  },
+  {
+    num: '03',
+    title: 'Transparent Collaboration',
+    description: 'Clear communication, regular updates, and complete visibility throughout every stage of the project.'
+  },
+  {
+    num: '04',
+    title: 'Long-Term Partnership',
+    description: 'We focus on building lasting relationships, helping businesses grow through continuous improvement and ongoing support.'
+  }
+];
+
 export const WhyChooseVClick: React.FC = () => {
-  const cards = [
-    {
-      num: '01',
-      title: 'Strategic Thinking',
-      description: 'Every project starts with understanding your business, your goals, and your audience before we recommend solutions.'
-    },
-    {
-      num: '02',
-      title: 'Tailored Solutions',
-      description: 'No two businesses are alike. Every strategy is designed specifically for your industry, challenges, and growth objectives.'
-    },
-    {
-      num: '03',
-      title: 'Transparent Collaboration',
-      description: 'Clear communication, regular updates, and complete visibility throughout every stage of the project.'
-    },
-    {
-      num: '04',
-      title: 'Long-Term Partnership',
-      description: 'We focus on building lasting relationships, helping businesses grow through continuous improvement and ongoing support.'
-    }
-  ];
 
   return (
     <section className="relative z-20 pt-10 pb-16 md:pt-14 md:pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
@@ -61,7 +62,7 @@ export const WhyChooseVClick: React.FC = () => {
           CARDS GRID (1, 2, 3, 4)
          ==================================================== */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-        {cards.map((card, index) => (
+        {CARDS.map((card, index) => (
           <motion.div
             key={card.num}
             initial={{ opacity: 0, y: 30 }}

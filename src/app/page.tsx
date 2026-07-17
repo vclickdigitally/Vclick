@@ -1,17 +1,21 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { HeroSection } from '../components/HeroSection';
-import { AboutSection } from '../components/AboutSection';
-import { ServicesSection } from '../components/ServicesSection';
-import { WhyChooseVClick } from '../components/WhyChooseVClick';
-import { InteractivePortfolio } from '../components/InteractivePortfolio';
-import { ProcessSection } from '../components/ProcessSection';
-import { TrustedBySection } from '../components/TrustedBySection';
-import { ClientStatsSection } from '../components/ClientStatsSection';
-import { GoogleReviewsSection } from '../components/GoogleReviewsSection';
-import { BlogSection } from '../components/BlogSection';
-import { FaqSection } from '../components/FaqSection';
-import { CtaSection } from '../components/CtaSection';
 import { buildMetadata, generateJsonLdSchema } from '@/lib/metadata';
+
+// Below-the-fold components dynamically imported to optimize initial JS bundle and TBT
+// Below-the-fold components dynamically imported to optimize initial JS bundle and TBT
+const AboutSection = dynamic(() => import('../components/AboutSection').then(m => m.AboutSection));
+const ServicesSection = dynamic(() => import('../components/ServicesSection').then(m => m.ServicesSection));
+const WhyChooseVClick = dynamic(() => import('../components/WhyChooseVClick').then(m => m.WhyChooseVClick));
+const InteractivePortfolio = dynamic(() => import('../components/InteractivePortfolio').then(m => m.InteractivePortfolio));
+const ProcessSection = dynamic(() => import('../components/ProcessSection').then(m => m.ProcessSection));
+const TrustedBySection = dynamic(() => import('../components/TrustedBySection').then(m => m.TrustedBySection));
+const ClientStatsSection = dynamic(() => import('../components/ClientStatsSection').then(m => m.ClientStatsSection));
+const GoogleReviewsSection = dynamic(() => import('../components/GoogleReviewsSection').then(m => m.GoogleReviewsSection));
+const BlogSection = dynamic(() => import('../components/BlogSection').then(m => m.BlogSection));
+const FaqSection = dynamic(() => import('../components/FaqSection').then(m => m.FaqSection));
+const CtaSection = dynamic(() => import('../components/CtaSection').then(m => m.CtaSection));
 
 // Centralized Metadata API Integration
 export const metadata = buildMetadata();

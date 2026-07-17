@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ShieldCheck, Cpu, Gauge, Zap } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
@@ -29,7 +29,33 @@ export const HeroSection: React.FC = () => {
 
   // Mouse tilt / parallax position for desktop dashboard
   const dashboardRef = useRef<HTMLDivElement>(null);
-  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
+  
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 120 };
+  const smoothMouseX = useSpring(mouseX, springConfig);
+  const smoothMouseY = useSpring(mouseY, springConfig);
+
+  // Motion value transformations for individual cards to prevent re-renders
+  const c0X = useTransform(smoothMouseX, x => x * 6);
+  const c0Y = useTransform(smoothMouseY, y => y * 6);
+
+  const c1X = useTransform(smoothMouseX, x => x * 14);
+  const c1RotateX = useTransform(smoothMouseY, y => y * -12);
+  const c1RotateY = useTransform(smoothMouseX, x => x * 12);
+
+  const c2X = useTransform(smoothMouseX, x => x * -18);
+  const c2RotateX = useTransform(smoothMouseY, y => y * -10);
+  const c2RotateY = useTransform(smoothMouseX, x => x * 10);
+
+  const c3X = useTransform(smoothMouseX, x => x * -12);
+  const c3RotateX = useTransform(smoothMouseY, y => y * -8);
+  const c3RotateY = useTransform(smoothMouseX, x => x * 8);
+
+  const c5X = useTransform(smoothMouseX, x => x * 16);
+  const c5RotateX = useTransform(smoothMouseY, y => y * -12);
+  const c5RotateY = useTransform(smoothMouseX, x => x * 12);
 
   // Count up animation for SEO score (0 -> 93)
   useEffect(() => {
@@ -61,14 +87,13 @@ export const HeroSection: React.FC = () => {
     const normX = (e.clientX - centerX) / (rect.width / 2);
     const normY = (e.clientY - centerY) / (rect.height / 2);
 
-    setMouseOffset({
-      x: Math.max(-1, Math.min(1, normX)),
-      y: Math.max(-1, Math.min(1, normY)),
-    });
+    mouseX.set(Math.max(-1, Math.min(1, normX)));
+    mouseY.set(Math.max(-1, Math.min(1, normY)));
   };
 
   const handleMouseLeave = () => {
-    setMouseOffset({ x: 0, y: 0 });
+    mouseX.set(0);
+    mouseY.set(0);
   };
 
   return (
@@ -82,7 +107,7 @@ export const HeroSection: React.FC = () => {
           
           {/* Tagline */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="mb-4 flex items-center gap-4"
@@ -95,7 +120,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Monumental Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="text-[52px] sm:text-[76px] md:text-[90px] xl:text-[105px] leading-[0.88] font-black tracking-tighter uppercase mb-6 font-display"
@@ -111,7 +136,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Paragraph */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
             className="text-[#8E8E8E] text-base sm:text-lg leading-relaxed max-w-[500px] mb-8"
@@ -121,7 +146,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Single Primary CTA: "Let's Talk Growth" */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45, ease: 'easeOut' }}
             className="flex items-center"
@@ -171,20 +196,20 @@ export const HeroSection: React.FC = () => {
                   CENTER TYPOGRAPHY & AMBIENT CRIMSON GLOW
                  ---------------------------------------------------- */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, filter: 'blur(8px)' }}
+                initial={false}
                 animate={{ 
                   opacity: 1, 
                   scale: 1,
                   filter: 'blur(0px)',
-                  x: mouseOffset.x * 6,
-                  y: mouseOffset.y * 6,
+                }}
+                style={{
+                  x: c0X,
+                  y: c0Y,
                 }}
                 transition={{ 
                   opacity: { duration: 1.0, delay: 0.4 },
                   scale: { duration: 1.0, delay: 0.4 },
                   filter: { duration: 1.0, delay: 0.4 },
-                  x: { type: 'spring', damping: 25, stiffness: 150 },
-                  y: { type: 'spring', damping: 25, stiffness: 150 },
                 }}
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center select-none w-max pointer-events-none"
               >
@@ -217,7 +242,7 @@ export const HeroSection: React.FC = () => {
                   CARD 01: SEO SCORE (Top-Right)
                  ---------------------------------------------------- */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8, filter: 'blur(15px)', y: 40 }}
+                initial={false}
                 animate={{ opacity: 1, scale: 1, filter: 'blur(0px)', y: 0 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
                 style={{ willChange: 'transform, opacity' }}
@@ -229,12 +254,11 @@ export const HeroSection: React.FC = () => {
                   style={{ willChange: 'transform' }}
                 >
                   <motion.div
-                    animate={{ 
-                      x: mouseOffset.x * 14,
-                      rotateX: mouseOffset.y * -12,
-                      rotateY: mouseOffset.x * 12,
+                    style={{ 
+                      x: c1X,
+                      rotateX: c1RotateX,
+                      rotateY: c1RotateY,
                     }}
-                    transition={{ type: 'spring', damping: 25, stiffness: 120 }}
                     whileHover={{ 
                       scale: 1.04, 
                       y: -8, 
@@ -301,7 +325,7 @@ export const HeroSection: React.FC = () => {
                   CARD 02: MARKET DOMINANCE (Bottom-Left)
                  ---------------------------------------------------- */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8, filter: 'blur(15px)', y: 40 }}
+                initial={false}
                 animate={{ opacity: 1, scale: 1, filter: 'blur(0px)', y: 0 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
                 style={{ willChange: 'transform, opacity' }}
@@ -313,12 +337,11 @@ export const HeroSection: React.FC = () => {
                   style={{ willChange: 'transform' }}
                 >
                   <motion.div
-                    animate={{ 
-                      x: mouseOffset.x * -18,
-                      rotateX: mouseOffset.y * -10,
-                      rotateY: mouseOffset.x * 10,
+                    style={{ 
+                      x: c2X,
+                      rotateX: c2RotateX,
+                      rotateY: c2RotateY,
                     }}
-                    transition={{ type: 'spring', damping: 25, stiffness: 120 }}
                     whileHover={{ 
                       scale: 1.05, 
                       y: -8, 
@@ -384,7 +407,7 @@ export const HeroSection: React.FC = () => {
                   CARD 03: AI SEARCH OPTIMIZED (Top-Left)
                  ---------------------------------------------------- */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8, filter: 'blur(15px)', y: 40 }}
+                initial={false}
                 animate={{ opacity: 1, scale: 1, filter: 'blur(0px)', y: 0 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
                 style={{ willChange: 'transform, opacity' }}
@@ -396,12 +419,11 @@ export const HeroSection: React.FC = () => {
                   style={{ willChange: 'transform' }}
                 >
                   <motion.div
-                    animate={{ 
-                      x: mouseOffset.x * -12,
-                      rotateX: mouseOffset.y * -8,
-                      rotateY: mouseOffset.x * 8,
+                    style={{ 
+                      x: c3X,
+                      rotateX: c3RotateX,
+                      rotateY: c3RotateY,
                     }}
-                    transition={{ type: 'spring', damping: 25, stiffness: 120 }}
                     whileHover={{ 
                       scale: 1.04, 
                       y: -8, 
@@ -451,7 +473,7 @@ export const HeroSection: React.FC = () => {
                   CARD 05: PERFORMANCE (Bottom-Right)
                  ---------------------------------------------------- */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8, filter: 'blur(15px)', y: 40 }}
+                initial={false}
                 animate={{ opacity: 1, scale: 1, filter: 'blur(0px)', y: 0 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 1.0 }}
                 style={{ willChange: 'transform, opacity' }}
@@ -463,12 +485,11 @@ export const HeroSection: React.FC = () => {
                   style={{ willChange: 'transform' }}
                 >
                   <motion.div
-                    animate={{ 
-                      x: mouseOffset.x * 16,
-                      rotateX: mouseOffset.y * -12,
-                      rotateY: mouseOffset.x * 12,
+                    style={{ 
+                      x: c5X,
+                      rotateX: c5RotateX,
+                      rotateY: c5RotateY,
                     }}
-                    transition={{ type: 'spring', damping: 25, stiffness: 120 }}
                     whileHover={{ 
                       scale: 1.04, 
                       y: -8, 
@@ -547,7 +568,7 @@ export const HeroSection: React.FC = () => {
               
               {/* Tablet Center Typography Banner */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="text-center py-6 px-4 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 relative overflow-hidden"
@@ -566,7 +587,7 @@ export const HeroSection: React.FC = () => {
 
               {/* Card 01 - SEO Score */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.75 }}
                 className="bg-[#111111] border border-white/10 p-5 rounded-xl w-full"
@@ -595,7 +616,7 @@ export const HeroSection: React.FC = () => {
 
               {/* Card 02 - Market Dominance */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
                 className="bg-[#111111] border border-[#DD183B]/40 p-5 rounded-xl w-full shadow-[0_0_20px_rgba(221,24,59,0.15)]"
@@ -626,7 +647,7 @@ export const HeroSection: React.FC = () => {
 
               {/* Card 03 - AI Search */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.05 }}
                 className="bg-[#111111] border border-white/10 p-5 rounded-xl w-full"
@@ -640,7 +661,7 @@ export const HeroSection: React.FC = () => {
 
               {/* Card 05 - Performance */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
                 className="bg-[#111111] border border-white/10 p-5 rounded-xl w-full"
