@@ -1,8 +1,30 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { m as motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m as motion, useMotionValue, useSpring, useTransform, useMotionValueEvent, animate, MotionValue } from 'framer-motion';
 import { ShieldCheck, Cpu, Gauge, Zap } from 'lucide-react';
+
+const AnimatedScoreText = ({ 
+  score, 
+  suffix = "+", 
+  className 
+}: { 
+  score: MotionValue<number>; 
+  suffix?: string; 
+  className?: string; 
+}) => {
+  const [roundedScore, setRoundedScore] = useState(0);
+  
+  useMotionValueEvent(score, "change", (latest) => {
+    setRoundedScore(Math.round(latest));
+  });
+
+  return (
+    <span className={className}>
+      {roundedScore}{suffix}
+    </span>
+  );
+};
 
 export const HeroSection: React.FC = () => {
   const onLaunchExperience = () => {
@@ -12,8 +34,9 @@ export const HeroSection: React.FC = () => {
     }
   };
 
-  // Score count-up state for Card 01
-  const [score, setScore] = useState(0);
+  // Score count-up MotionValue for Card 01
+  const score = useMotionValue(0);
+  const strokeDashoffset = useTransform(score, value => 100 - value * 0.93);
 
   // Mobile check state to avoid loading/calculating on mobile
   const [isMobile, setIsMobile] = useState(false);
@@ -57,38 +80,46 @@ export const HeroSection: React.FC = () => {
   const c5RotateX = useTransform(smoothMouseY, y => y * -12);
   const c5RotateY = useTransform(smoothMouseX, x => x * 12);
 
-  // Count up animation for SEO score (0 -> 93)
+  // Count up animation for SEO score (0 -> 93) using Framer Motion animate to avoid React re-renders
   useEffect(() => {
     if (isMobile) return;
-    let start = 0;
-    const end = 93;
-    const duration = 2000;
-    const stepTime = Math.abs(Math.floor(duration / end));
-
-    const timer = setInterval(() => {
-      start += 1;
-      setScore(start);
-      if (start >= end) {
-        clearInterval(timer);
-      }
-    }, stepTime);
-
-    return () => clearInterval(timer);
+    const controls = animate(score, 93, {
+      duration: 2,
+      ease: "easeOut",
+    });
+    return () => controls.stop();
   }, [isMobile]);
 
-  // Track mouse movement over dashboard canvas for 3D tilt & parallax
+  // Track mouse movement over dashboard canvas for 3D tilt & parallax, throttled via requestAnimationFrame
+  const ticking = useRef(false);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!dashboardRef.current) return;
-    const rect = dashboardRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
     
-    // Normalized values from -1 to 1
-    const normX = (e.clientX - centerX) / (rect.width / 2);
-    const normY = (e.clientY - centerY) / (rect.height / 2);
+    const clientX = e.clientX;
+    const clientY = e.clientY;
 
-    mouseX.set(Math.max(-1, Math.min(1, normX)));
-    mouseY.set(Math.max(-1, Math.min(1, normY)));
+    if (!ticking.current) {
+      window.requestAnimationFrame(() => {
+        if (!dashboardRef.current) {
+          ticking.current = false;
+          return;
+        }
+        const rect = dashboardRef.current.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        // Normalized values from -1 to 1
+        const normX = (clientX - centerX) / (rect.width / 2);
+        const normY = (clientY - centerY) / (rect.height / 2);
+
+        mouseX.set(Math.max(-1, Math.min(1, normX)));
+        mouseY.set(Math.max(-1, Math.min(1, normY)));
+        
+        ticking.current = false;
+      });
+      ticking.current = true;
+    }
   };
 
   const handleMouseLeave = () => {
@@ -285,25 +316,18 @@ export const HeroSection: React.FC = () => {
                             cy="20"
                             r="16"
                             stroke="#DD183B"
-                            strokeWidth="3.5"
                             strokeDasharray="100"
-                            strokeDashoffset={100 - score * 0.93}
+                            strokeDashoffset={strokeDashoffset}
                             strokeLinecap="round"
                             fill="none"
-                            animate={{
-                              opacity: [0.85, 1, 0.85],
-                              strokeWidth: [3.5, 4.2, 3.5]
-                            }}
-                            transition={{
-                              duration: 3.5,
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            }}
+                            className="animate-pulse-stroke"
                           />
                         </svg>
-                        <span className="absolute text-[11px] font-black tracking-tighter text-white font-display">
-                          {score}+
-                        </span>
+                        <AnimatedScoreText
+                          score={score}
+                          suffix="+"
+                          className="absolute text-[11px] font-black tracking-tighter text-white font-display"
+                        />
                       </div>
 
                       <div>
@@ -603,9 +627,13 @@ export const HeroSection: React.FC = () => {
                   <div className="relative w-12 h-12 flex items-center justify-center">
                     <svg className="w-full h-full transform -rotate-90" viewBox="0 0 40 40">
                       <circle cx="20" cy="20" r="16" stroke="rgba(255,255,255,0.1)" strokeWidth="3" fill="none" />
-                      <circle cx="20" cy="20" r="16" stroke="#DD183B" strokeWidth="3.5" strokeDasharray="100" strokeDashoffset={100 - score * 0.93} strokeLinecap="round" fill="none" />
+                      <motion.circle cx="20" cy="20" r="16" stroke="#DD183B" strokeWidth="3.5" strokeDasharray="100" strokeDashoffset={strokeDashoffset} strokeLinecap="round" fill="none" />
                     </svg>
-                    <span className="absolute text-xs font-black text-white font-display">{score}+</span>
+                    <AnimatedScoreText
+                      score={score}
+                      suffix="+"
+                      className="absolute text-xs font-black text-white font-display"
+                    />
                   </div>
                   <div>
                     <p className="text-base font-black text-white font-display">93+</p>

@@ -74,12 +74,21 @@ html {
   50% { transform: translate(30px, -20px) scale(1.1); }
 }
 
+@keyframes vc-pulse-stroke {
+  0%, 100% { stroke-width: 3.5px; opacity: 0.85; }
+  50% { stroke-width: 4.2px; opacity: 1; }
+}
+
 .animate-glow-primary {
   animation: vc-pulse-glow-primary 12s ease-in-out infinite;
 }
 
 .animate-glow-secondary {
   animation: vc-pulse-glow-secondary 16s ease-in-out infinite;
+}
+
+.animate-pulse-stroke {
+  animation: vc-pulse-stroke 3.5s ease-in-out infinite;
 }
 
 
