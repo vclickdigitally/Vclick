@@ -9,29 +9,32 @@ import { useModals } from '@/providers/ModalProvider';
 import { services, homepageLinks, internalLinks } from '@/config/navigation';
 import { ServicesDropdown } from './ServicesDropdown';
 
-export const Logo: React.FC<{ isCompact?: boolean }> = ({ isCompact }) => {
-  const [imgError, setImgError] = useState(false);
-
-  if (!imgError) {
+export const Logo: React.FC<{ isFooter?: boolean }> = ({ isFooter }) => {
+  if (isFooter) {
     return (
       <img
-        src="/logo.png"
+        src="/Footer Vclick Digitally logo.svg"
         alt="VClick Digitally"
-        width={180}
-        height={48}
-        onError={() => setImgError(true)}
-        className={`${isCompact ? 'h-8 sm:h-9' : 'h-10 sm:h-12'} w-auto object-contain transition-all duration-300`}
+        className="h-[52px] w-auto object-contain transition-all duration-300"
       />
     );
   }
 
   return (
-    <div className="flex items-center gap-2 sm:gap-2.5 group">
-      <div className={`${isCompact ? 'w-2 h-6 sm:h-7' : 'w-3 h-8 sm:h-9'} bg-[#DD183B] group-hover:scale-y-110 transition-transform origin-bottom shrink-0`} />
-      <span className={`${isCompact ? 'text-base sm:text-lg' : 'text-lg sm:text-2xl'} font-black tracking-tighter uppercase font-display text-white`}>
-        VClick <span className="text-[#DD183B] group-hover:translate-x-0.5 inline-block transition-transform">/</span> Digitally
-      </span>
-    </div>
+    <>
+      {/* Desktop Header Logo */}
+      <img
+        src="/Header Vclick Digitally logo.svg"
+        alt="VClick Digitally"
+        className="hidden lg:block h-[42px] w-auto object-contain transition-all duration-300"
+      />
+      {/* Mobile Header Logo */}
+      <img
+        src="/Mobile Header Vclick Digitally logo.svg"
+        alt="VClick Digitally"
+        className="block lg:hidden h-[38px] w-auto object-contain transition-all duration-300"
+      />
+    </>
   );
 };
 
@@ -90,7 +93,7 @@ export const Navbar: React.FC = () => {
         
         {/* Logo Link */}
         <Link href="/" className="flex items-center group shrink-0" aria-label="VClick Digitally Homepage">
-          <Logo isCompact={isScrolled} />
+          <Logo />
         </Link>
 
         {/* Center Desktop Navigation Links */}

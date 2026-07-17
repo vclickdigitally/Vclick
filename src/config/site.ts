@@ -5,9 +5,8 @@ export const siteConfig = {
   url: process.env.APP_URL || "https://vclickdigitally.com",
   ogImage: "/og-image.png",
   links: {
-    twitter: "https://twitter.com/vclickdigitally",
-    github: "https://github.com/vclickdigitally",
-    linkedin: "https://linkedin.com/company/vclickdigitally",
+    instagram: "https://www.instagram.com/vclickdigitally",
+    linkedin: "https://www.linkedin.com/in/vclick-digitally-b54463383/",
   },
   author: "VClick Team",
 };

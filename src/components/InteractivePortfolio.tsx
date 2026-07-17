@@ -223,7 +223,7 @@ export const InteractivePortfolio: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="relative z-20 pt-10 pb-16 md:pt-14 md:pb-24 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto w-full border-b border-white/5 overflow-hidden">
+    <section id="projects" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] max-w-7xl mx-auto w-full border-b border-white/5 overflow-hidden">
       
       {/* ====================================================
           SECTION HEADER
@@ -405,17 +405,6 @@ export const InteractivePortfolio: React.FC = () => {
 
         </div>
 
-      </div>
-
-      {/* Reusable Scalable Sub-link trigger */}
-      <div className="mt-12 text-center border-t border-white/5 pt-8">
-        <a 
-          href="#contact"
-          className="inline-flex items-center gap-1.5 text-xs text-[#8E8E8E] hover:text-[#DD183B] font-bold uppercase tracking-widest font-sans transition-colors duration-300"
-        >
-          <span>View Full Portfolio</span>
-          <ArrowRight className="w-3.5 h-3.5" />
-        </a>
       </div>
 
     </section>

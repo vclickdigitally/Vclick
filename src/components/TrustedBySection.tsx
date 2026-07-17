@@ -6,9 +6,9 @@ import { TRUSTED_BRANDS } from '../data/mockData';
 import { ShieldCheck, ArrowUpRight } from 'lucide-react';
 
 export const TrustedBySection: React.FC = () => {
-  // Split 17 real brands into two subsets for top and bottom marquee rows
+  // Split 18 real brands into two subsets for top and bottom marquee rows
   const topRowBrands = TRUSTED_BRANDS.slice(0, 9);
-  const bottomRowBrands = TRUSTED_BRANDS.slice(9, 17);
+  const bottomRowBrands = TRUSTED_BRANDS.slice(9, 18);
 
   // Duplicate arrays for seamless infinite looping without gaps
   const topLoop = [...topRowBrands, ...topRowBrands, ...topRowBrands, ...topRowBrands];
@@ -63,7 +63,7 @@ export const TrustedBySection: React.FC = () => {
   };
 
   return (
-    <section className="relative z-20 pt-10 pb-8 md:pt-14 md:pb-10 bg-[#0B0B0B] border-t border-b border-white/5 overflow-hidden">
+    <section className="relative z-20 py-16 md:py-24 bg-[#0B0B0B] border-t border-b border-white/5 overflow-hidden">
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
         <motion.div

@@ -210,7 +210,7 @@ export const TermsPage: React.FC = () => {
               <div className="bg-[#1a1a1a]/80 p-5 rounded-xl border border-white/5 mt-2 flex flex-col gap-2 font-sans text-xs sm:text-sm font-semibold text-white/90">
                 <p><span className="text-[#DD183B] font-bold">Entity:</span> VClick Digitally</p>
                 <p><span className="text-[#DD183B] font-bold">Email:</span> hello@vclickdigitally.com</p>
-                <p><span className="text-[#DD183B] font-bold">Phone:</span> +91 99449 41707</p>
+                <p><span className="text-[#DD183B] font-bold">Phone:</span> +91 99448 41707</p>
                 <p><span className="text-[#DD183B] font-bold">HQ Location:</span> Tamil Nadu, India</p>
               </div>
             </PolicyCard>

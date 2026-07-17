@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 export const FloatingWhatsApp: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const phoneNumber = "919944941707";
+  const phoneNumber = "919944841707";
   const message = "Hi VClick Digitally,\n\nI'm interested in your digital marketing services.\n\nI'd like to discuss my project.";
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;

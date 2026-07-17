@@ -143,7 +143,7 @@ export const PrivacyPolicyPage: React.FC = () => {
             {/* 6. WhatsApp Communication */}
             <PolicyCard id="whatsapp" num="06" title="WhatsApp Communication">
               <p>
-                Our floating chat component redirects you to `https://wa.me/919944941707` with a pre-filled service inquiry message.
+                Our floating chat component redirects you to `https://wa.me/919944841707` with a pre-filled service inquiry message.
               </p>
               <p>
                 Conversations held via WhatsApp are subject to the native end-to-end encryption protocols of Meta Platforms Inc. We retain text logs only as needed to manage client service relationships.
@@ -196,7 +196,7 @@ export const PrivacyPolicyPage: React.FC = () => {
               <div className="bg-[#1a1a1a]/80 p-5 rounded-xl border border-white/5 mt-2 flex flex-col gap-2 font-sans text-xs sm:text-sm font-semibold text-white/90">
                 <p><span className="text-[#DD183B] font-bold">Company:</span> VClick Digitally</p>
                 <p><span className="text-[#DD183B] font-bold">Email:</span> hello@vclickdigitally.com</p>
-                <p><span className="text-[#DD183B] font-bold">Phone:</span> +91 99449 41707</p>
+                <p><span className="text-[#DD183B] font-bold">Phone:</span> +91 99448 41707</p>
                 <p><span className="text-[#DD183B] font-bold">HQ Location:</span> Tamil Nadu, India</p>
               </div>
             </PolicyCard>

@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
         {/* COLUMN 01: LOGO & ABOUT (Span 4 cols) */}
         <div className="col-span-1 md:col-span-1 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
           <div className="mb-5">
-            <Logo />
+            <Logo isFooter={true} />
           </div>
           <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-4 max-w-sm">
             VClick Digitally helps businesses grow through SEO, high-performance websites, branding, social media, and performance marketing.
@@ -90,22 +90,22 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col gap-4 text-xs text-white/80 font-medium">
             {/* Phone link */}
             <a 
-              href="tel:+919944941707" 
+              href="tel:+919944841707" 
               className="flex items-center justify-center md:justify-start gap-2 hover:text-[#DD183B] transition-colors group"
             >
               <Phone className="w-4 h-4 text-[#DD183B]" />
-              <span>+91 99449 41707</span>
+              <span>+91 99448 41707</span>
             </a>
 
             {/* WhatsApp link */}
             <a 
-              href="https://wa.me/919944941707" 
+              href="https://wa.me/919944841707" 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center md:justify-start gap-2 hover:text-[#DD183B] transition-colors group"
             >
               <MessageCircle className="w-4 h-4 text-[#DD183B]" />
-              <span>+91 99449 41707</span>
+              <span>+91 99448 41707</span>
             </a>
 
             {/* Email link */}
@@ -126,7 +126,7 @@ export const Footer: React.FC = () => {
             {/* Active Social Media platforms */}
             <div className="flex gap-3 mt-2 justify-center md:justify-start">
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/vclick-digitally-b54463383/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#DD183B] hover:shadow-[0_0_15px_rgba(221,24,59,0.3)] flex items-center justify-center text-white/70 hover:text-[#DD183B] transition-all hover:scale-105"
@@ -135,7 +135,7 @@ export const Footer: React.FC = () => {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/vclickdigitally" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#DD183B] hover:shadow-[0_0_15px_rgba(221,24,59,0.3)] flex items-center justify-center text-white/70 hover:text-[#DD183B] transition-all hover:scale-105"

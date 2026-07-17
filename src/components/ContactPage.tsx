@@ -100,7 +100,7 @@ export const ContactPage: React.FC = () => {
               
               {/* Phone Card */}
               <a 
-                href="tel:+919944941707"
+                href="tel:+919944841707"
                 className="bg-[#111111]/85 border border-white/10 p-5 rounded-2xl flex items-start gap-4 hover:border-[#DD183B]/30 transition-all group"
               >
                 <div className="p-3 rounded-xl bg-[#DD183B]/10 border border-[#DD183B]/20 text-[#DD183B] shrink-0">
@@ -108,7 +108,7 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-widest text-[#8E8E8E] block mb-1">Direct Call</span>
-                  <span className="text-base font-bold text-white group-hover:text-[#DD183B] transition-colors">+91 99449 41707</span>
+                  <span className="text-base font-bold text-white group-hover:text-[#DD183B] transition-colors">+91 99448 41707</span>
                 </div>
               </a>
 
@@ -211,7 +211,7 @@ export const ContactPage: React.FC = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+91 99449 41707"
+                    placeholder="+91 99448 41707"
                     className="w-full bg-[#0B0B0B] border border-white/15 focus:border-[#DD183B] focus:ring-1 focus:ring-[#DD183B] rounded-xl px-4 py-3 text-sm text-white transition-all font-sans placeholder-white/20 outline-none"
                   />
                 </div>

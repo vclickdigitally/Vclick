@@ -113,9 +113,9 @@ export const CompanyInfoCard: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-3 text-xs font-semibold text-white/80 font-sans">
-        <a href="tel:+919944941707" className="flex items-center gap-2.5 hover:text-[#DD183B] transition-colors">
+        <a href="tel:+919944841707" className="flex items-center gap-2.5 hover:text-[#DD183B] transition-colors">
           <Phone className="w-4 h-4 text-[#DD183B]" />
-          <span>+91 99449 41707</span>
+          <span>+91 99448 41707</span>
         </a>
         <a href="mailto:hello@vclickdigitally.com" className="flex items-center gap-2.5 hover:text-[#DD183B] transition-colors">
           <Mail className="w-4 h-4 text-[#DD183B]" />

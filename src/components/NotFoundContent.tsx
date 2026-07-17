@@ -87,11 +87,11 @@ export const NotFoundContent: React.FC = () => {
         {/* Footer note */}
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-xs text-white/50 font-sans border-t border-white/5 pt-6 w-full max-w-lg justify-center">
           <span className="font-bold text-white/60">Need help?</span>
-          <a href="tel:+919944941707" className="hover:text-[#DD183B] transition-colors flex items-center gap-1.5">
+          <a href="tel:+919944841707" className="hover:text-[#DD183B] transition-colors flex items-center gap-1.5">
             <Phone className="w-3.5 h-3.5" />
-            +91 99449 41707
+            +91 99448 41707
           </a>
-          <a href="https://wa.me/919944941707" target="_blank" rel="noopener noreferrer" className="hover:text-[#DD183B] transition-colors flex items-center gap-1.5">
+          <a href="https://wa.me/919944841707" target="_blank" rel="noopener noreferrer" className="hover:text-[#DD183B] transition-colors flex items-center gap-1.5">
             <MessageCircle className="w-3.5 h-3.5" />
             WhatsApp
           </a>

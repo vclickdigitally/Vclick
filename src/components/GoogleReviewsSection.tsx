@@ -91,7 +91,7 @@ const LOOP_REVIEWS = [...REVIEWS_DATA, ...REVIEWS_DATA];
 
 export const GoogleReviewsSection: React.FC = () => {
   return (
-    <section className="relative z-20 pt-10 pb-16 md:pt-14 md:pb-24 px-6 md:px-12 bg-[#0C0C0C] max-w-7xl mx-auto w-full border-b border-white/5 overflow-hidden">
+    <section className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0C0C0C] max-w-7xl mx-auto w-full border-b border-white/5 overflow-hidden">
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
         

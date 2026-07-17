@@ -27,7 +27,7 @@ const cardVariants = {
 export const ClientStatsSection: React.FC = () => {
   const stats = [
     {
-      value: '17+',
+      value: '18+',
       label: 'Happy Clients',
       description: 'Businesses across India, Singapore, Saudi Arabia and USA trusting VClick with their digital growth.'
     },
@@ -49,7 +49,7 @@ export const ClientStatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative z-20 pt-8 pb-16 md:pt-10 md:pb-20 px-6 md:px-12 bg-[#0B0B0B] border-b border-white/5 overflow-hidden w-full">
+    <section className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] border-b border-white/5 overflow-hidden w-full">
       <div className="max-w-7xl mx-auto w-full">
         
         {/* ====================================================

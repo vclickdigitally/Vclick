@@ -9,7 +9,7 @@ export const FaqSection: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(FAQ_LIST[0].id);
 
   return (
-    <section id="faq" className="relative z-20 pt-10 pb-16 md:pt-14 md:pb-24 px-6 md:px-12 bg-[#0B0B0B] border-t border-white/5 max-w-5xl mx-auto">
+    <section id="faq" className="relative z-20 py-16 md:py-24 px-6 md:px-12 bg-[#0B0B0B] border-t border-white/5 max-w-5xl mx-auto">
       <div className="text-center mb-20">
         <div className="flex items-center justify-center gap-2 mb-4">
           <HelpCircle className="w-4 h-4 text-[#DD183B]" />

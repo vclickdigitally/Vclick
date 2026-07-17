@@ -13,7 +13,7 @@ export default function ContactRoute() {
     "@type": "LocalBusiness",
     "name": "VClick Digitally",
     "image": "https://vclickdigitally.com/logo.png",
-    "telephone": "+919944941707",
+    "telephone": "+919944841707",
     "email": "hello@vclickdigitally.com",
     "address": {
       "@type": "PostalAddress",

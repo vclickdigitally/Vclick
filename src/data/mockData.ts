@@ -27,6 +27,7 @@ export const TRUSTED_BRANDS = [
   { name: 'Magic Minds Education', category: 'Education', style: 'font-bold tracking-widest uppercase font-display text-base sm:text-lg' },
   { name: 'Dodecan', category: 'Technology Solutions', style: 'font-extrabold tracking-tight uppercase font-display text-base sm:text-lg' },
   { name: 'Gulfsig', category: 'Industrial Services', style: 'font-black tracking-widest uppercase font-display text-lg sm:text-xl' },
+  { name: 'Makkal Choice', category: 'Media & News', style: 'font-extrabold tracking-normal uppercase font-display text-base sm:text-lg' },
 ];
 
 export const SERVICES_DATA: ServiceItem[] = [

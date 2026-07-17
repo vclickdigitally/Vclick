@@ -121,7 +121,7 @@ export function generateJsonLdSchema(type: "Organization" | "WebSite" | "Service
       ...defaults,
       "logo": `${siteConfig.url}/logo.png`,
       "sameAs": [
-        siteConfig.links.twitter,
+        siteConfig.links.instagram,
         siteConfig.links.linkedin,
       ],
       ...data,

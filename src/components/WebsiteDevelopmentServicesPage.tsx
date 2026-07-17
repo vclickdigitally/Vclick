@@ -208,7 +208,7 @@ const WebHero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const clients = useAnimatedCounter(17, 1600, inView);
+  const clients = useAnimatedCounter(18, 1600, inView);
   const years = useAnimatedCounter(5, 1400, inView);
   const countries = useAnimatedCounter(4, 1000, inView);
 
