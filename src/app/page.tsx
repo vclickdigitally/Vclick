@@ -3,19 +3,11 @@ import dynamic from 'next/dynamic';
 import { HeroSection } from '../components/HeroSection';
 import { buildMetadata, generateJsonLdSchema } from '@/lib/metadata';
 
-// Below-the-fold components dynamically imported to optimize initial JS bundle and TBT
-// Below-the-fold components dynamically imported to optimize initial JS bundle and TBT
-const AboutSection = dynamic(() => import('../components/AboutSection').then(m => m.AboutSection));
-const ServicesSection = dynamic(() => import('../components/ServicesSection').then(m => m.ServicesSection));
-const WhyChooseVClick = dynamic(() => import('../components/WhyChooseVClick').then(m => m.WhyChooseVClick));
+// Consolidated groups of below-the-fold sections to decrease dynamic chunk loading overhead while keeping SSR enabled
+const CoreMarketingSections = dynamic(() => import('../components/CoreMarketingSections').then(m => m.CoreMarketingSections));
 const InteractivePortfolio = dynamic(() => import('../components/InteractivePortfolio').then(m => m.InteractivePortfolio));
-const ProcessSection = dynamic(() => import('../components/ProcessSection').then(m => m.ProcessSection));
-const TrustedBySection = dynamic(() => import('../components/TrustedBySection').then(m => m.TrustedBySection));
-const ClientStatsSection = dynamic(() => import('../components/ClientStatsSection').then(m => m.ClientStatsSection));
-const GoogleReviewsSection = dynamic(() => import('../components/GoogleReviewsSection').then(m => m.GoogleReviewsSection));
-const BlogSection = dynamic(() => import('../components/BlogSection').then(m => m.BlogSection));
-const FaqSection = dynamic(() => import('../components/FaqSection').then(m => m.FaqSection));
-const CtaSection = dynamic(() => import('../components/CtaSection').then(m => m.CtaSection));
+const SocialProofSections = dynamic(() => import('../components/SocialProofSections').then(m => m.SocialProofSections));
+const ConversionSections = dynamic(() => import('../components/ConversionSections').then(m => m.ConversionSections));
 
 // Centralized Metadata API Integration
 export const metadata = buildMetadata();
@@ -56,39 +48,17 @@ export default function Home() {
         {/* 1. Hero Section - Renders instantly */}
         <HeroSection />
 
-        {/* Below-the-fold content */}
-        {/* About Us Section */}
-          <AboutSection />
+        {/* 2. Core Marketing (About, Services, Why Choose VClick) */}
+        <CoreMarketingSections />
 
-          {/* 2. Our Services / Core Capabilities */}
-          <ServicesSection />
+        {/* 3. Selected Work Interactive Portfolio */}
+        <InteractivePortfolio />
 
-          {/* 3. Why Choose VClick */}
-          <WhyChooseVClick />
+        {/* 4. Social Proof & Blog (Trusted By, Client Stats, Google Reviews, Blog) */}
+        <SocialProofSections />
 
-          {/* 4. Selected Work Interactive Portfolio */}
-          <InteractivePortfolio />
-
-          {/* 5. Our Surgical Process */}
-          <ProcessSection />
-
-          {/* 11. Trusted By Industry Leaders */}
-          <TrustedBySection />
-
-          {/* Client Stats Section */}
-          <ClientStatsSection />
-
-          {/* Google Reviews Section */}
-          <GoogleReviewsSection />
-
-          {/* Dynamic Blog Section */}
-          <BlogSection />
-
-          {/* 12. Frequently Answered Inquiries (FAQ) */}
-          <FaqSection />
-
-          {/* 12. Monumental Turning Point CTA */}
-          <CtaSection />
+        {/* 5. Process, FAQ & CTA */}
+        <ConversionSections />
       </main>
     </>
   );

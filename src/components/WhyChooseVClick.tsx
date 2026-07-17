@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 
 const CARDS = [
   {
@@ -26,8 +26,28 @@ const CARDS = [
   }
 ];
 
-export const WhyChooseVClick: React.FC = () => {
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1,
+    }
+  }
+};
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut'
+    }
+  }
+};
+
+export const WhyChooseVClick: React.FC = () => {
   return (
     <section className="relative z-20 pt-10 pb-16 md:pt-14 md:pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
       
@@ -61,14 +81,17 @@ export const WhyChooseVClick: React.FC = () => {
       {/* ====================================================
           CARDS GRID (1, 2, 3, 4)
          ==================================================== */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-        {CARDS.map((card, index) => (
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-100px' }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full"
+      >
+        {CARDS.map((card) => (
           <motion.div
             key={card.num}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+            variants={cardVariants}
             className="group relative bg-[#111111]/85 backdrop-blur-xl border border-white/15 hover:border-[#DD183B]/40 p-6 rounded-2xl shadow-2xl transition-all duration-400 flex flex-col justify-between min-h-[220px]"
           >
             {/* Subtle Hover Gradient Overlay */}
@@ -90,7 +113,7 @@ export const WhyChooseVClick: React.FC = () => {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
     </section>
   );

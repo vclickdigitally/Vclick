@@ -1,14 +1,33 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { SERVICES_DATA } from '../data/mockData';
 import { ServiceItem } from '../types';
 import { Globe, TrendingUp, Target, Smartphone, ArrowRight } from 'lucide-react';
 
-export const ServicesSection: React.FC = () => {
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1,
+    }
+  }
+};
 
-  
+const cardVariants = {
+  hidden: { opacity: 0, y: 35 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: 'easeOut'
+    }
+  }
+};
+
+export const ServicesSection: React.FC = () => {
   // Icon Mapping Helper
   const getIcon = (id: string) => {
     switch (id) {
@@ -55,17 +74,20 @@ export const ServicesSection: React.FC = () => {
       {/* ====================================================
           CORE SERVICES GRID (2x2 Layout)
          ==================================================== */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-100px' }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full"
+      >
         {SERVICES_DATA.map((service, index) => {
           const formattedNumber = `0${index + 1}`;
           
           return (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.7, delay: index * 0.1, ease: 'easeOut' }}
+              variants={cardVariants}
               data-interactive="true"
               className="group relative bg-[#111111]/80 backdrop-blur-xl border border-white/15 hover:border-[#DD183B]/40 p-8 rounded-2xl shadow-2xl transition-all duration-400 cursor-pointer overflow-hidden flex flex-col justify-between min-h-[380px]"
             >
@@ -129,7 +151,7 @@ export const ServicesSection: React.FC = () => {
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
     </section>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m as motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ShieldCheck, Cpu, Gauge, Zap } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
